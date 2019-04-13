@@ -3,8 +3,11 @@
 
 @if (ViewBag.ActiveUser != null)
 {
+    <style>
+        #CommentText { height:34px !important;}
+    </style>
     <div class="input-group">
-        @Html.TextAreaFor(m => m.CommentText, new { PlaceHolder = "Write a comment...", Class = "form-control CommentText", @rows = 1 })
+        @Html.TextAreaFor(m => m.CommentText, new { PlaceHolder = "Write a comment...", Class = "form-control CommentText", @rows = 1})
         <span class="input-group-btn">
             <a href="#" rel="nofollow" id="AddComment" data-genericid="@Model.GenericId" data-commenttype="@Model.CommentType.ToString()" class="btn btn-default AddComment">Post</a>
         </span>

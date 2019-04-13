@@ -20,10 +20,12 @@ using Brewgr.Web.Core.Data;
 using Brewgr.Web.Core.Service;
 using Brewgr.Web.Models;
 using Brewgr.Web.Core.Model;
+using System.Web.Optimization;
 
 namespace Brewgr.Web.Controllers
 {
-	public class RecipeController : BrewgrController
+    [RoutePrefix("Recipe")]
+    public class RecipeController : BrewgrController
 	{
 		readonly IUnitOfWorkFactory<BrewgrContext> UnitOfWorkFactory;
 		readonly IRecipeService RecipeService;
@@ -112,7 +114,7 @@ namespace Brewgr.Web.Controllers
 			
 			var styleRecipes = this.BeerStyleService.GetStyleRecipesPage(style.SubCategoryId, pager);
 
-			if(styleRecipes.Any() && !pager.IsInRange())
+            if (styleRecipes.Any() && !pager.IsInRange())
 			{
 				return this.Issue404();
 			}
@@ -122,7 +124,7 @@ namespace Brewgr.Web.Controllers
 			var model = new StyleDetailViewModel
 			{
 				BjcpStyle = style, 
-				Recipes = styleRecipes, 
+				Recipes = Mapper.Map(styleRecipes, new List<RecipeSummaryViewModel>()),
 				Pager = pager, 
 				BaseUrl = Url.StyleDetailUrl(urlFriendlyName),
 				TopRatedRecipes = topRatedRecipes
@@ -482,7 +484,9 @@ namespace Brewgr.Web.Controllers
 		[ForceHttps]
 		public ViewResult NewRecipe()
 		{
-			ViewBag.RecipeCreationOptions = this.RecipeService.GetRecipeCreationOptions();
+            
+
+            ViewBag.RecipeCreationOptions = this.RecipeService.GetRecipeCreationOptions();
 
 			// Source Recipe (or Default) // TODO: Derive Defaults from user preferences
 			var recipe = new RecipeViewModel();
@@ -872,8 +876,8 @@ namespace Brewgr.Web.Controllers
 			return View(new RecipeBrewSessionsViewModel
 			{
 				RecipeSummary = Mapper.Map(recipeSummary, new RecipeSummaryViewModel()),
-				BrewSessions = brewSessions
-			});
+				BrewSessions = Mapper.Map(brewSessions, new List<BrewSessionSummaryViewModel>())
+            });
 		}
 
 		#endregion

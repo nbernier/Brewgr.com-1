@@ -32,13 +32,13 @@
     <div class="row">
         <div class="col-xs-6 col-md-3">
             <div class="form-group">
-                <label>Measured Temp</label>
+                <label class="infolink">Measured Temp <a href="#" data-toggle="tooltip" title="The gravity reading of your hydrometer at the non-calibrated temperature." class="help-tooltip">?</a></label>
                 <input type="number" step=".1" class="form-control" id="mtemp" value="68"/>
             </div>
         </div>
         <div class="col-xs-6 col-md-3">
             <div class="form-group">
-                <label>Target Temp</label>
+                <label>Target Temp <a href="#" data-toggle="tooltip" title="The temperature your hydrometer is calibrated, usually 60 for older hydrometers and 68 for newer ones." class="help-tooltip">?</a></label>
                 <input type="number" step=".1" class="form-control" id="ttemp" value="68"/>
             </div>
         </div>
@@ -62,11 +62,13 @@
 
 <script type="text/javascript">
     $(function () {
+
         $('#scale').change(function () {
             var func = $('#scale').val() === "f" ? util.c_To_f : util.f_To_c;
             $('#mtemp').val(func($('#mtemp').val()));
             $('#ttemp').val(func($('#ttemp').val()));
         });
+
         $('#vw-hydrocalc button').click(function () {
 
             var mtemp = $('#scale').val() === 'f' ? $('#mtemp').val() : util.c_To_f($('#mtemp').val());
@@ -76,6 +78,9 @@
             $(this).blur();
             $('#cgravity').flash();
         });
+
+        $('[data-toggle="tooltip"]').tooltip({
+            placement: 'top'
+        });
     });
 </script>
-

@@ -12,6 +12,31 @@
 .page-header.small { font-size: 20px; margin-bottom: 10px; }
 .btn-grey { color: #fff; background-color: #c0c0c0; border-color: #c0c0c0; }
 
+/* 5 equal columns  
+<div class="row">
+    <div class="col-md-5ths col-xs-6">
+       ...
+    </div>
+</div>*/
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths { position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; }
+
+.col-xs-5ths { width: 20%; float: left; }
+
+@media (min-width: 768px) {
+    .col-sm-5ths { width: 20%; float: left; }
+}
+
+@media (min-width: 992px) {
+    .col-md-5ths { width: 20%; float: left; }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-5ths { width: 20%; float: left; }
+}
+
 /* ------------------------------------------------------------------------------------------*/
 /* --------- Components -------------------------------------------------------------------- */
 /* ------------------------------------------------------------------------------------------*/
@@ -64,12 +89,12 @@ abbr.timeago { display: none; border: 0; cursor: default; } /* Hide TimeAgo by D
 /* ------------------------------------------------------------------------------------------*/
 /* --------- Recipe Widget ----------------------------------------------------------------- */
 /* ------------------------------------------------------------------------------------------*/
-.recipe-widget { font-size: 12px; line-height: 18px; }
+/*.recipe-widget { font-size: 12px; line-height: 18px; }
 .recipe-widget [data-rating] { margin-bottom: 6px; margin-top: -4px; }
 .recipe-widget .media-body { color: #666; }
 .recipe-widget h4 { font-size: 14px; font-weight: bold; margin-bottom: 2px; }
 .recipe-widget .badge { display: table;  width: 100%; border-radius: 4px; background-color: #eee; margin-top: 8px; border: solid 1px #ddd; color: #57595D; font-weight: normal; }
-.recipe-widget .badge span { display: table-cell; text-align: center; vertical-align: middle; }
+.recipe-widget .badge span { display: table-cell; text-align: center; vertical-align: middle; }*/
 
 
 /* ------------------------------------------------------------------------------------------*/
@@ -122,7 +147,7 @@ abbr.timeago { display: none; border: 0; cursor: default; } /* Hide TimeAgo by D
 .view h2, .view .h2 { font-size: 24px; color: #EB7723; line-height: 30px; }
 .view h3, .view .h3 { font-size: 21px; color: #666; }
 @media only screen and (max-width: 767px) {
-    .view img { width: 100%; height: auto; } /* full width images */
+    /*.view img { width: 100%; height: auto; }  full width images */
     .view img.keepsize, .view .keepsize img { width: initial; height: initial; } /* full width images */
 }
 
@@ -174,6 +199,7 @@ abbr.timeago { display: none; border: 0; cursor: default; } /* Hide TimeAgo by D
 #vw-profile .tab-pane { padding-top: 18px; }
 #vw-profile .tab-content .thumbnail { width: 130px; float: left;  }
 #vw-profile [data-followid] { display: block; width: 200px; border-top-left-radius: 0; border-top-right-radius: 0; }
+#vw-profile .new-recipe-button { text-align:right; }
 @media only screen and (min-width: 768px) and (max-width: 1199px) {
     #vw-profile .nav-tabs { margin-top: 18px; }
 }
@@ -260,9 +286,80 @@ abbr.timeago { display: none; border: 0; cursor: default; } /* Hide TimeAgo by D
 #dashboard .list h5 { color:#aaa; margin-bottom:15px; }
 #dashboard .addedby-date { color:#aaa; }
 
+/* ------------------------------------------------------------------------------------------*/
+/* --------- Homepage ---------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------*/
+.recipe-widget .data .srm { width: 18px; height: 18px; float: left; margin-top: 0px; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; margin-right: 4px; padding-top: 0 !important; }
+.recipe-widget .data .item { padding-left:9px; padding-right:9px; }
+.recipe-widget h4 { margin-top: 0px; margin-bottom: 2px; }
+#vw-home .user-widget h4 { margin-top: 0px; margin-bottom: 2px; }
+#vw-home #hero-image { text-align: center; height: 500px; background: #e8eced url('/img/home-brew-single-teir.jpg') no-repeat center; }
+#vw-home .wrapper { margin: 0 auto; background-color: rgba(0, 0, 0, 0.6); display: inline-block; padding: 2%; margin-top: 100px; border-radius: 20px; }
+#vw-home .wrapper h1 { color: #fff; margin: 0px 0px 40px; font-size: 40px; font-weight: bold; }
+#vw-home .home-search { margin-top: 40px; margin-bottom: 20px; text-align: center; }
+#vw-home .home-search .input-group { width: 40%; margin: 0 auto; }
+
+@media only screen and (max-width: 767px) {
+    #vw-home .home-search .input-group { width: 100%; margin: 0 auto; }
+}
 
 /* ------------------------------------------------------------------------------------------*/
 /* --------- Water Calculator -------------------------------------------------------------- */
 /* ------------------------------------------------------------------------------------------*/
-#water-calc span[data-unit].active { display: inline-block; }
+#water-calc span[data-unit].active { display: inline; }
 #water-calc [data-unit] { display: none; }
+#water-calc .measurement { white-space: nowrap; }
+#view-editbrewsession { white-space: nowrap; }
+
+
+/* ------------------------------------------------------------------------------------------*/
+/* --------- Recipes ----------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------*/
+#recipes-view .panel { min-height: 236px; }
+#recipes-view .first-row { margin-bottom:30px; }
+#vw-styledetail .style-summary { margin-top:60px; }
+#vw-styledetail .style-summary h3 { margin-top:0px; }
+
+
+/* ---- [ tipsy ] ---------------------------------------------> */
+.tipsy { font-size: 11px; position: absolute; padding: 5px; z-index: 100000; }
+.tipsy-inner { background-color: #000; color: #FFF; max-width: 200px; padding: 5px 8px 4px 8px; text-align: center; }
+.tipsy-inner { border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+.tipsy-inner { box-shadow: 0 0 5px #000000; -webkit-box-shadow: 0 0 5px #000000; -moz-box-shadow: 0 0 5px #000000; }
+.tipsy-arrow { position: absolute; width: 0; height: 0; line-height: 0; border: 5px dashed #000; }
+.tipsy-arrow-n { border-bottom-color: #000; }
+.tipsy-arrow-s { border-top-color: #000; }
+.tipsy-arrow-e { border-left-color: #000; }
+.tipsy-arrow-w { border-right-color: #000; }
+.tipsy-n .tipsy-arrow { top: 0px; left: 50%; margin-left: -5px; border-bottom-style: solid; border-top: none; border-left-color: transparent; border-right-color: transparent; }
+.tipsy-nw .tipsy-arrow { top: 0; left: 10px; border-bottom-style: solid; border-top: none; border-left-color: transparent; border-right-color: transparent; }
+.tipsy-ne .tipsy-arrow { top: 0; right: 10px; border-bottom-style: solid; border-top: none; border-left-color: transparent; border-right-color: transparent; }
+.tipsy-s .tipsy-arrow { bottom: 0; left: 50%; margin-left: -5px; border-top-style: solid; border-bottom: none; border-left-color: transparent; border-right-color: transparent; }
+.tipsy-sw .tipsy-arrow { bottom: 0; left: 10px; border-top-style: solid; border-bottom: none; border-left-color: transparent; border-right-color: transparent; }
+.tipsy-se .tipsy-arrow { bottom: 0; right: 10px; border-top-style: solid; border-bottom: none; border-left-color: transparent; border-right-color: transparent; }
+.tipsy-e .tipsy-arrow { right: 0; top: 50%; margin-top: -5px; border-left-style: solid; border-right: none; border-top-color: transparent; border-bottom-color: transparent; }
+.tipsy-w .tipsy-arrow { left: 0; top: 50%; margin-top: -5px; border-right-style: solid; border-left: none; border-top-color: transparent; border-bottom-color: transparent; }
+
+.helptip { background: url(/img/help.gif) no-repeat; height: 11px; width: 12px; display: inline-block; vertical-align: middle; margin-top: -2px; }
+
+.no-search-results { margin-top:20px; margin-bottom:200px; }
+.recipe-search-form .checkbox label { margin-right:20px; }
+.recipe-search-form .styles { height: 150px; width: 95%; overflow-y: scroll; padding: 5px; border: solid 1px #ccc; }
+.recipe-search-form .styles label { display:block; }
+
+.spinner { display: none; margin-left: 8px; vertical-align: middle; }
+
+/* ---- [ messages ] ---------------------------------------------> */
+.messages { color: #333; margin-top: 12px; }
+.messages ul { display: block; margin: 0; padding: 0; margin-bottom: 18px; }
+.messages li { list-style:none; font-size: 18px; -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; margin-bottom: 15px; font-family: Arial,Helvetica,sans-serif; font-weight: bold; padding: 12px; text-align: center; }
+.messages li.error, div.error { background: #fff2f2; border: solid 3px #ffc8c8; color: #ee6b6b }
+.messages li.success { background: #ecf7e2; border: solid 3px #b1db7f; color: #74a43a; }
+.messages li.warn { background: #fcfbdf; border: solid 3px #ddd487; color: #aba64e; }
+.messages li.info { background: #eaf8ff; border: solid 3px #b4d6e7; color: #68a1bd; }
+.messages.small li { font-size: 12px; width: auto; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; padding: 8px; border-width: 1px; }
+div.error { border: solid 3px #ffc8c8; padding: 12px; font-size: 18px; width: 100%; -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; margin-bottom: 15px; font-family: Arial,Helvetica,sans-serif; font-weight: bold; text-align: center; }
+input.field-error { background-color: #FFF2F2; color: #EE6B6B !important; border: solid 2px #EE6B6B; }
+
+.messages li.info a { color: #68a1bd !important; text-decoration: underline; }
+.messages li.info a:hover { color: #68a1bd; text-decoration: none; }

@@ -210,8 +210,21 @@ namespace Brewgr.Web.Controllers
 				return this.Issue404();
 			}
 
-			// Validation (client validates also ... this to ensure data consistency)
-			if (postedSession.BrewDate == DateTime.MinValue)
+            // Validation (client validates also ... this to ensure data consistency)
+            if (postedSession.BrewDate > DateTime.Now.AddDays(14))
+            {
+                if (isNewSession)
+                {
+                    this.AppendMessage(new ErrorMessage { Text = "You cannot enter a date that far in the future." });
+                    return View("NewBrewSession", new BrewSessionViewModel { RecipeId = postedSession.RecipeId, RecipeSummary = Mapper.Map(recipeSummary, new RecipeSummaryViewModel()) });
+                }
+
+                // Signals Invalid
+                return this.Content("0");
+            }
+
+            // Validation (client validates also ... this to ensure data consistency)
+            if (postedSession.BrewDate == DateTime.MinValue)
 			{
 				if (isNewSession)
 				{

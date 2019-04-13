@@ -36,8 +36,9 @@ namespace Brewgr.Web
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
+            BundleConfig.RegisterBuilderBundles(BundleTable.Bundles);
 
-			MvcHandler.DisableMvcResponseHeader = true;
+            MvcHandler.DisableMvcResponseHeader = true;
 
 			FluentValidationModelValidatorProvider.Configure(provider =>
 			{

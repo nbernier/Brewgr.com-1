@@ -37,8 +37,7 @@ function general_onReady() {
     });
 
     // Date Picker
-    //$('.datepicker').datepicker();
-    console.log("TODO: Replace datepicker with a non jqueryIU version");
+    $('.datepicker').datepicker();
 
     $('.recipe-import').click(function () {
         $.colorbox({ html: '<iframe id="ImportBeerXmlIFrame" src="/ImportBeerXmlDialog" width="525" height="200" scrolling="no" />', opacity: .35, overlayClose: false, escKey: false, scrolling: false });
@@ -455,45 +454,45 @@ function builder_onReady() {
     }
 
     if ($('#view-newrecipe, #view-editrecipe, #view-newbrewsession, #view-editbrewsession').length > 0) {
-        // Make the Recipe Facts Box Move While Scrolling
-        function isScrolledTo(elem) {
-            var docViewTop = $(window).scrollTop(); //num of pixels hidden above current screen
-            //var docViewBottom = docViewTop + $(window).height();
-            var elemTop = $(elem).offset().top; //num of pixels above the elem
-            //var elemBottom = elemTop + $(elem).height();
-            return ((elemTop <= docViewTop || elemTop >= docViewTop));
-        }
+        //// Make the Recipe Facts Box Move While Scrolling
+        //function isScrolledTo(elem) {
+        //    var docViewTop = $(window).scrollTop(); //num of pixels hidden above current screen
+        //    //var docViewBottom = docViewTop + $(window).height();
+        //    var elemTop = $(elem).offset().top; //num of pixels above the elem
+        //    //var elemBottom = elemTop + $(elem).height();
+        //    return ((elemTop <= docViewTop || elemTop >= docViewTop));
+        //}
 
-        var catcher = $('.catcher');
-        var sticky = $('.builder-wrapper .compliment');
-        //var lastStickyTop = sticky.offset().top;
+        //var catcher = $('.catcher');
+        //var sticky = $('.builder-wrapper .compliment');
+        ////var lastStickyTop = sticky.offset().top;
 
-        $(window).scroll(function () {
+        //$(window).scroll(function () {
 
-            var footer = $('#footer');
-            var footTop = footer.offset().top - 24;
+        //    var footer = $('#footer');
+        //    var footTop = footer.offset().top - 24;
 
-            sticky.css('margin-left', '700px');
+        //    sticky.css('margin-left', '700px');
 
-            if (isScrolledTo(sticky)) {
-                sticky.css('position', 'fixed');
-                sticky.css('top', '10px');
-            }
-            var stopHeight = catcher.offset().top + catcher.height();
-            var stickyFoot = sticky.offset().top + sticky.height();
+        //    if (isScrolledTo(sticky)) {
+        //        sticky.css('position', 'fixed');
+        //        sticky.css('top', '10px');
+        //    }
+        //    var stopHeight = catcher.offset().top + catcher.height();
+        //    var stickyFoot = sticky.offset().top + sticky.height();
 
-            if (stickyFoot > footTop - 10) {
-                sticky.css({
-                    position: 'absolute',
-                    top: (footTop - 20) - sticky.height()
-                });
-            } else {
-                if (stopHeight > sticky.offset().top) {
-                    sticky.css('position', 'absolute');
-                    sticky.css('top', stopHeight);
-                }
-            }
-        });
+        //    if (stickyFoot > footTop - 10) {
+        //        sticky.css({
+        //            position: 'absolute',
+        //            top: (footTop - 20) - sticky.height()
+        //        });
+        //    } else {
+        //        if (stopHeight > sticky.offset().top) {
+        //            sticky.css('position', 'absolute');
+        //            sticky.css('top', stopHeight);
+        //        }
+        //    }
+        //});
 
         // Track Form Changes
         $('.builder input, .builder select, .builder textarea').not('#taste-date').not('#NewTastingNotes').not('.CommentText').change(function () {
@@ -564,11 +563,11 @@ function recipeDetail_onReady() {
 
 /* --------------------------------------------------- [ Settings ] ---------------------------------------------------------- */
 function settings_onReady() {
-    if ($('#view-settings').length > 0) {
+    if ($('#vw-settings').length > 0) {
         var usernameTimer = null;
         var emailTimer = null;
 
-        $('#view-settings .tabs').tabs({
+        $('#vw-settings .tabs').tabs({
             beforeActivate: function () {
                 Message.clear();
             }
@@ -579,9 +578,9 @@ function settings_onReady() {
         };
 
         Message.useSmall();
-        Message.setParent($('#view-settings form').parents('.tab'));
-
-        $('#view-settings form').ajaxForm({
+        Message.setParent($('#vw-settings form').parents('.tab'));
+        
+        $('#vw-settings form').ajaxForm({
             preSubmitCallback: function (theForm) {
                 Message.clear();
             },
@@ -600,7 +599,7 @@ function settings_onReady() {
             }
         });
 
-        $('#view-settings .username').keyup(function () {
+        $('#vw-settings .username').keyup(function () {
 
             clearTimeout(usernameTimer);
 
@@ -634,7 +633,7 @@ function settings_onReady() {
             }, 350);
         });
 
-        $('#view-settings .emailaddress').keyup(function () {
+        $('#vw-settings .emailaddress').keyup(function () {
 
             clearTimeout(emailTimer);
 
@@ -965,6 +964,7 @@ function dashboard_onReady() {
                     if (response.indexOf('NoDashboardItems') > 0) {
                         $('.dashboard-nomore').hide();
                         $('.dashboard-nomorerecipes').show();
+                        $('.dashboard-nomorerecipes').removeClass("hidden")
                     }
 
                     $('#tab-tab-2 .CommentText').autosize();
@@ -987,8 +987,9 @@ function dashboard_onReady() {
                     $('#tabsessions').html(response);
                     if (response.indexOf('NoDashboardItems') > 0) {
                         $('.dashboard-nomore').hide();
-                        //$('.dashboard-nomorebrewsessions').removeClass("hidden");
                         $('.dashboard-nomorebrewsessions').show();
+                        $('.dashboard-nomorebrewsessions').removeClass("hidden");
+                        
                     }
 
                     $('#tabrecipes .CommentText').autosize();

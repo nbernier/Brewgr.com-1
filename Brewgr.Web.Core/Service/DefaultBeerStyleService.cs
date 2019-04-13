@@ -81,9 +81,9 @@ namespace Brewgr.Web.Core.Service
 		/// <summary>
 		/// Gets a page of style recipes
 		/// </summary>
-		public IPagedList<RecipeSummary> GetStyleRecipesPage(string subCategoryId, Pager pager)
+		public IList<RecipeSummary> GetStyleRecipesPage(string subCategoryId, Pager pager)
 		{
-			if(pager == null)
+            if (pager == null)
 			{
 				throw new ArgumentNullException("pager");
 			}

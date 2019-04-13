@@ -1,6 +1,7 @@
 ﻿@using Brewgr.Web
 @using Brewgr.Web.Core.Model
 @using ctorx.Core.Formatting
+@using System.Web.Optimization
 
 @model BrewSessionViewModel
 
@@ -8,20 +9,27 @@
 	ViewBag.Title = "New Brew Session for " + Model.RecipeSummary.Name;
 }
 
+@* Style Bundle *@
+@Styles.Render("~/bundles/css/builder")
+
 <div id="view-newbrewsession" class="content builder-wrapper">
-    <div class="primary builder session">
-        @Html.Partial("_BrewSessionForm", Model)
+    <div class="container">
+        <div class="row">
+            <section class="col-xs-12 col-sm-12 col-md-8 col-lg-9">
+                <div class="primary builder session">
+                    @Html.Partial("_BrewSessionForm", Model)
+                </div>
+            </section>
+            <section class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+                <div class="compliment">
+                    <div id="recipe-facts">
+                        @Html.Partial("_RecipeFacts", Model.RecipeSummary)
+                    </div>
+                    <input type="submit" id="SaveBrewSessionButton" class="button button_green save-recipe margintop10" value="Save Brew Session" />
+                </div>
+            </section>
+        </div>
     </div>
-    <div class="catcher">
-        <!--catcher-->
-    </div>
-    <div class="compliment">
-        @Html.Partial("_RecipeFacts", Model.RecipeSummary)
-        <input type="submit" id="SaveBrewSessionButton" class="button button_green save-brewsession margintop10" value="Save Brew Session" />
-    </div>
-    <div class="catcher">
-        <!--catcher-->
-    </div>  
 </div>
 
 <div class="hidden">
@@ -34,7 +42,7 @@
 @section Scripts
 {
     <script type="text/javascript">
-        $(function() {
+        $(function () {
             SessionBuilder.initialize();
             @if(Model.RecipeSummary.RecipeTypeId != (int)RecipeType.Extract)
             {

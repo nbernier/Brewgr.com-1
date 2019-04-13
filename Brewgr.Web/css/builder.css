@@ -1,12 +1,15 @@
 ﻿
 /* ---- [ Shared ] ---------------------------------------------> */	
-	.primary { width: 665px; margin-right: 35px; float: left; }
-	.compliment { width: 236px; float: left; }
-	.primary .groupbox > span { height: 20px; padding-right: 0; }
-	[data-name=styleid] { width: 220px; }
+	/*.primary { width: 665px; margin-right: 35px; float: left; }*/
+    .primary { min-width: 600px; }
+	/*.compliment { width: 236px; float: left; }*/
+	.primary .groupbox > span { height: 34px; padding-right: 0; }
+	[data-name=styleid] { width: 100%; }
+    .builder-hidden { display:none; }
+    
 
 /* ---- [ Recipe Builder ] ---------------------------------------------> */	
-	.save-recipe, .save-brewsession { width: 240px; height: 40px; font-weight: bold; font-size: 18px; }
+	.save-recipe, .save-brewsession { width: 100%; height: 40px; font-weight: bold; font-size: 18px; }
 	.builder-wrapper .edit-recipe { width: 210px; font-weight: bold; font-size: 18px; text-align: center; margin-bottom: 0px; }
 	.builder-wrapper .spinner { display: none; position: relative; top:10px; right: -100px; margin-top: 20px; height:40px; }
 
@@ -17,9 +20,10 @@
 	.builder [data-trigger] { width: 300px;   }
 
 	/* recipe info box / recipe Data*/
-	.builder .info [data-name=r_Name] { display: block; width: 608px; padding: 8px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; font-size: 18px; color: #777; margin: 8px auto 18px auto; } 
-	.builder .info .values { width: 600px; margin: 0 auto; }
-	.builder .info .values > div { width: 110px; padding: 0 5px; float: left; }
+	.builder .info [data-name=r_Name] { display: block; width: 100%; padding: 8px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; font-size: 18px; color: #777; margin: 8px auto 18px auto; } 
+	.builder .info .values { /*width: 600px;*/ margin: 0 auto; }
+	/*.builder .info .values > div { width: 110px; padding: 0 5px; float: left; }*/
+    .builder .brewsessiondata .values > div { width: 110px; padding: 0 5px; float: left; }
 	.builder .info .values > div .title { text-align: center; font-size: 12px; }
 	.builder .info .values > div label { font-weight: bold; text-align: center; }
 	.builder .info .values > div select, .builder .info .values > div input { margin: 0 auto; width: 100px; display: block; }
@@ -27,7 +31,7 @@
 	.builder .info .values .textlabel { position: absolute; margin-top: -19px; margin-left: 58px; font-size: 11px !important; color: #aaa; text-align: right; width: 35px; }
 	.builder .info .more { margin-top: 18px; }
 	.builder .info .more h4 { display: inline-block; margin: 0 0 0 4px;  }
-	.builder .info [data-name=r_Description], .builder .info [data-name=s_Notes] { border: 2px inset; display: block; width: 608px; height: 13.5px; padding: 8px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; font-size: 12px; color: #333; margin: 8px auto 12px auto; resize: vertical; }
+	.builder .info [data-name=r_Description], .builder .info [data-name=s_Notes] { border: 2px inset; display: block; width: 100%; height: 13.5px; padding: 8px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; font-size: 12px; color: #333; margin: 8px auto 12px auto; resize: vertical; }
 	.builder .actions { margin: 12px 4px; }
 	.builder .actions .button_small { padding-left: 12px; padding-right: 12px; font-weight: bold; margin-right: 8px; }
 	
@@ -57,7 +61,7 @@
 	.builder [data-name=f_table] .customname, .builder [data-name=f_table] [data-name=f_Name] { width: 213px; }
 	.builder [data-name=f_table] [data-name=f_Name] { display: inline-block; }
 	.builder [data-name=f_table] thead td:nth-child(3), .builder [data-name=f_table] tbody td:nth-child(3) { text-align: left; }
-	.builder [data-name=f_table] .content { width: 385px; margin-top: -36px; }
+	.builder [data-name=f_table] .content { width: 385px; margin-top: -10px; }
 	.builder [data-name=f_table] tr td:nth-of-type(1) { width: 35px; }
 	.builder [data-name=f_table] tr td:nth-of-type(2) { width: 55px; }
 	.builder [data-name=f_table] tr td:nth-of-type(3) { width: 225px; }
@@ -124,7 +128,7 @@
 	.builder [data-name=s_table] thead tr td, .builder [data-name=s_table] tfoot tr td { border: 0; text-align: left; }	
 	.builder [data-name=s_table] td { padding: 0; }
 	.builder [data-name=s_table] [data-name=s_RankLabel] { font-size: 18px; color: #666; width: 35px; float: left; margin-top: 10px; }
-	.builder [data-name=s_table] [data-name=s_Text] { width: 494px; padding: 8px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; font-size: 18px; color: #777; }
+	.builder [data-name=s_table] [data-name=s_Text] { width: 100%; padding: 8px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; font-size: 18px; color: #777; }
 	.builder [data-name=s_table] span { display: block; font-size: 11px; margin-bottom: 12px; margin-left: 12px;  }
 	.builder [data-name=s_table] a  { font-weight: bold;  }
 	.builder [data-name=s_table] a * { vertical-align: middle;  }
@@ -150,7 +154,7 @@
 	#view-changerecipephoto .photo img { border: solid 1px #ccc; }
 
 /* ---- [ Recipe Facts ] ---------------------------------------------> */
-	.facts { border: solid 4px #aaa; padding: 8px; width: 220px; -webkit-border-radius:8px; -moz-border-radius:8px; border-radius:8px; background-color: #fff; margin-bottom: 10px; }
+	.facts { border: solid 4px #aaa; padding: 8px; /*width: 220px;*/ -webkit-border-radius:8px; -moz-border-radius:8px; border-radius:8px; background-color: #fff; margin-bottom: 10px; }
     .facts [data-name=recipe-name] { font-size: 11px; }
     .facts h3 { font-family: Arial; font-size: 18px; margin-bottom: 4px; }
     .facts .first .color { float: right; width: 45px; height: 45px; padding-left: 4px; }

@@ -22,7 +22,12 @@
 @Html.Partial("~/Views/Shared/_SiteAnnouncement.cshtml")
 
 @Html.Partial("_Header")
-@Html.Partial("_TitleBar")
+
+@*Hide the title bar on the homepage*@
+@if(Request.RawUrl != "/")
+{
+    @Html.Partial("_TitleBar")
+}
 
 @*  Middle Part Start *@
 @Html.Partial("_SiteMessages", ViewBag.Messages as IList<IMessage>)

@@ -36,6 +36,7 @@ var Message =
         $('div.messages ul').append('<li class="' + type + '">' + message + '</li>');
         if (!$('.messages').is(':visible')) {
             $('.messages').show();
+            $('.messages').removeClass('hidden');
         }
     },
     

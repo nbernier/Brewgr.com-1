@@ -15,6 +15,7 @@
     <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
     <WebGreaseLibPath>..\..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -263,6 +264,7 @@
     <Compile Include="Models\PageableViewModel.cs" />
     <Compile Include="Models\PartnerDashboardViewModel.cs" />
     <Compile Include="Models\PostedSessionViewModel.cs" />
+    <Compile Include="Models\RecipeSearchResultsViewModel.cs" />
     <Compile Include="Models\SendToShopIngredientsViewModel.cs" />
     <Compile Include="Models\PartnerSettingsViewModel.cs" />
     <Compile Include="Models\PostedRecipeViewModel.cs" />

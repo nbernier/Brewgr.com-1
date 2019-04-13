@@ -60,9 +60,10 @@ namespace Brewgr.Web
 			this.Bind<IPartnerService>().To<DefaultPartnerService>();
 			this.Bind<ISendToShopService>().To<DefaultSendToShopService>();
 			this.Bind<IRecipeSearchService>().To<DefaultRecipeSearchService>();
+            this.Bind<IUserRelationService>().To<DefaultUserRelationService>();
 
-			// Services with Readonly Repositories
-			this.Bind<IUserService>().To<DefaultUserService>().WhenInjectedInto(typeof(RecipeCommentNotification))
+            // Services with Readonly Repositories
+            this.Bind<IUserService>().To<DefaultUserService>().WhenInjectedInto(typeof(RecipeCommentNotification))
 				.WithConstructorArgument("repository", x => x.Kernel.GetService(typeof(BrewgrReadOnlyRepository)));
 			this.Bind<IRecipeService>().To<DefaultRecipeService>().WhenInjectedInto(typeof(RecipeCommentNotification))
 				.WithConstructorArgument("repository", x => x.Kernel.GetService(typeof(BrewgrReadOnlyRepository)));

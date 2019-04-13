@@ -1,4 +1,4 @@
-@using System.Web.Optimization
+﻿@using System.Web.Optimization
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +22,9 @@
     @* Bootstrap CSS *@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
+    @* Datepicker *@
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+
     @* Style Bundle *@
     @Styles.Render("~/bundles/css")
 
@@ -29,7 +32,7 @@
     @RenderSection("Styles", false)
 
     @* jQuery $() Queue -- Taken from: http://writing.colin-gourlay.com/safely-using-ready-before-including-jquery/ *@
-    <script>(function(w,d,u){w.readyQ=[];w.bindReadyQ=[];function p(x,y){if(x=="ready"){w.bindReadyQ.push(y);}else{w.readyQ.push(x);}};var a={ready:p,bind:p};w.$=w.jQuery=function(f){if(f===d||f===u){return a}else{p(f)}}})(window,document)</script>
+    <script>(function (w, d, u) { w.readyQ = []; w.bindReadyQ = []; function p(x, y) { if (x == "ready") { w.bindReadyQ.push(y); } else { w.readyQ.push(x); } }; var a = { ready: p, bind: p }; w.$ = w.jQuery = function (f) { if (f === d || f === u) { return a } else { p(f) } } })(window, document)</script>
 </head>
 <body>
     @RenderBody()
@@ -42,15 +45,22 @@
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script>window.jQuery.migrateWarnings || document.write('<script src="@Url.Content("~/js/lib/jquery-migrate-1.2.1.min.js")"><\/script>')</script>
 
+    @* jQuery $() Queue -- Taken from: http://writing.colin-gourlay.com/safely-using-ready-before-including-jquery/ *@
+    <script>(function ($, d) { $.each(readyQ, function (i, f) { $(f) }); $.each(bindReadyQ, function (i, f) { $(d).bind("ready", f) }) })(jQuery, document)</script>
+
+    @* jQuery UI CDN with fallback *@
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script>window.jQuery.ui || document.write('<script src="@Url.Content("~/js/lib/jquery-ui-1.11.4.min.js")"><\/script>')</script>
+
     @* Bootstrap JS *@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-    @* jQuery $() Queue -- Taken from: http://writing.colin-gourlay.com/safely-using-ready-before-including-jquery/ *@
-    <script>(function($,d){$.each(readyQ,function(i,f){$(f)});$.each(bindReadyQ,function(i,f){$(d).bind("ready",f)})})(jQuery,document)</script>
+    @* Moment - Date tool *@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
 
-    @* jQuery UI CDN with fallback *@
-    @*<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-        <script>window.jQuery.ui || document.write('<script src="@Url.Content("~/js/lib/jquery-ui-1.11.4.min.js")"><\/script>')</script>*@
+    @* Datepicker *@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+
 
     @* Scripts Bundle *@
     @Scripts.Render("~/bundles/js")

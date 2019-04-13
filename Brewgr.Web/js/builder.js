@@ -264,7 +264,7 @@ var Builder =
             // Not Logged in, Show Login/Register dialog
             if ($('.builder').attr('data-isanon')) {
                 var loginFrameurl = "/loginviadialog" + (parseInt($('[data-name=r_RecipeId').val()) > 0 ? "?editMode=1" : "");
-                $.colorbox({ href: loginFrameurl, iframe: true, width: 800, height: 525, opacity: .35, overlayClose: false, closeButton: false, escKey: false, scrolling: false });
+                $.colorbox({ href: loginFrameurl, iframe: true, width: 900, height: 525, opacity: .35, overlayClose: true, closeButton: true, escKey: false, scrolling: true });
             } else {
                 
                 var recipe = Builder.getRecipe();
@@ -1090,6 +1090,25 @@ var SessionBuilder =
             return false;
         }
 
+        try {
+            var brew_date = new Date($('[data-name=s_BrewDate]').val());
+            var brew_date_today = new Date();
+            if (brew_date > brew_date_today.addDays(14)) {
+                $('[data-name=s_BrewDate]').addClass('field-error');
+                Message.error('Uh oh, something needs your attention. Brew date cannot be that far in the future.');
+                window.scrollTo(0, 1);
+                return false;
+            }
+        }
+        catch (err) {
+            Message.error('Uh oh, something went wrong.');
+            window.scrollTo(0, 1);
+            return false;
+        }
+
+
+        
+
         // Save 
         if(session.BrewSessionId == 0) {
             // New Session Saved via Form POST
@@ -1140,3 +1159,8 @@ var SessionBuilder =
     }
 };
 
+Date.prototype.addDays = function (days) {
+    var date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+}
