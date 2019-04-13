@@ -77,7 +77,7 @@ function general_onReady() {
             event.preventDefault();
             btn.attr('disabled', 'disabled');
             $.ajax({
-                url: '/api/user/relation/' + id,
+                url: '/ToggleBrewerFollow/' + id,
                 async: true,
                 type: followed ? "delete" : "post",
                 success: function (t) {

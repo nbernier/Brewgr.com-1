@@ -292,6 +292,31 @@ namespace Brewgr.Web.Controllers
         }
 
         /// <summary>
+		/// Executes the View for ToggleView
+		/// </summary>
+        [Authorize]
+		[Route("ToggleBrewerFollow/{userId}")]
+        public ContentResult ToggleBrewerFollow(int userId)
+        {
+            using (var unitOfWork = this.UnitOfWorkFactory.NewUnitOfWork())
+            {
+                try
+                {
+                    this.UserService.ToggleUserFollow(userId, this.ActiveUser.UserId);
+                    unitOfWork.Commit();
+
+                    return Content("1");
+                }
+                catch (Exception ex)
+                {
+                    this.LogHandledException(ex);
+                    unitOfWork.Rollback();
+                    return Content("0");
+                }
+            }
+        }
+
+        /// <summary>
         /// Gets the reputation score for a user
         /// </summary>
         public int UserRep(int userId)
