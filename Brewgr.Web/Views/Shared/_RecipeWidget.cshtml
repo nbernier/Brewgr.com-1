@@ -20,7 +20,7 @@
                 </h4>
                 <div class="type">@Model.GetRecipeTypeName() Recipe</div>
                 <div class="author">
-                    by <a href="@Url.UserProfileUrl(Model.CreatedByUserName)">@Model.CreatedByUserName</a>
+                    by <a href="@Url.UserProfileUrl(Model.CreatedByUserName)">@Model.CreatedByUserName</a> <small><abbr class="timeago" title="@Model.DateCreated.ToString("g")">@Model.DateCreated</abbr></small>
                 </div>
             </div>
         </div>
