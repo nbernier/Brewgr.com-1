@@ -49,14 +49,14 @@
             <div class="tab-content">
                 <div class="tab-pane active" id="recipes">
                     @if (Model.Recipes.Any())
-            {
-                @Html.Partial("_RecipeList", Model.Recipes)
-    }
-    else
     {
-        <div class="col-md-12">
-            <span class="h3">@Model.UserSummary.Username has not created any recipes yet</span>
-        </div>
+                @Html.Partial("_RecipeListTable", Model.Recipes)
+}
+else
+{
+                <div class="col-md-12">
+                    <span class="h3">@Model.UserSummary.Username has not created any recipes yet</span>
+                </div>
 }
                 </div>
                 <div class="tab-pane" id="sessions">

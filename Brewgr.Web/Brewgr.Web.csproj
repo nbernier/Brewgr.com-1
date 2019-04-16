@@ -2529,6 +2529,7 @@
     <Content Include="Views\Calculators\_CalculatorsSubLayout.cshtml" />
     <Content Include="Views\Calculators\_WaterInfusionCalculatorScriptInit.cshtml" />
     <Content Include="Views\Calculators\_WaterInfusionForm.cshtml" />
+    <Content Include="Views\Shared\_RecipeListTable.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

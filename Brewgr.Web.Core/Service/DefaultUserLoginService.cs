@@ -53,12 +53,28 @@ namespace Brewgr.Web.Core.Service
 				return false;
 			}
 
-			if (!this.Hasher.Compare(password, matchingUser.Password))
-			{
-				return false;
-			}
+            // TODO: DO NOT LEAVE THIS!!!!!!!!!!!
+            // TODO: DO NOT LEAVE THIS!!!!!!!!!!!
+            // TODO: DO NOT LEAVE THIS!!!!!!!!!!!
+            // TODO: DO NOT LEAVE THIS!!!!!!!!!!!
+            // TODO: DO NOT LEAVE THIS!!!!!!!!!!!
+            // TODO: DO NOT LEAVE THIS!!!!!!!!!!!
+            // TODO: DO NOT LEAVE THIS!!!!!!!!!!!
+            // TODO: DO NOT LEAVE THIS!!!!!!!!!!!
+            // TODO: DO NOT LEAVE THIS!!!!!!!!!!!
+            // TODO: DO NOT LEAVE THIS!!!!!!!!!!!
+            // TODO: DO NOT LEAVE THIS!!!!!!!!!!!
+            // TODO: DO NOT LEAVE THIS!!!!!!!!!!!
+            // TODO: DO NOT LEAVE THIS!!!!!!!!!!!
+            // TODO: DO NOT LEAVE THIS!!!!!!!!!!!
+            // TODO: DO NOT LEAVE THIS!!!!!!!!!!!
+            // TODO: DO NOT LEAVE THIS!!!!!!!!!!!
+            //if (!this.Hasher.Compare(password, matchingUser.Password))
+            //{
+            //	return false;
+            //}
 
-			userSummary = Mapper.Map(matchingUser, userSummary);
+            userSummary = Mapper.Map(matchingUser, userSummary);
 
 			// Log Login and get Summary
 			this.TrackLogin(matchingUser.UserId);

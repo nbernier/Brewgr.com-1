@@ -363,3 +363,6 @@ input.field-error { background-color: #FFF2F2; color: #EE6B6B !important; border
 
 .messages li.info a { color: #68a1bd !important; text-decoration: underline; }
 .messages li.info a:hover { color: #68a1bd; text-decoration: none; }
+
+.recipe-list-table .media-object { float:left; display:inline; }
+.recipe-list-table .menu { position: relative; }
