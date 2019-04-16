@@ -19,7 +19,7 @@
                     @if (ViewBag.ActiveUser != null)
                     {
                         <a href="@Url.Action("homebrew-recipe-calculator", "Recipe", null, "http")" class="btn btn-success btn-lg">New Recipe</a>
-                        <a href="@Url.UserProfileUrl((ViewBag.ActiveUser as UserSummary).Username)">My Recipes</a>
+                        <a href="@Url.UserProfileUrl((ViewBag.ActiveUser as UserSummary).Username)" class="btn btn-success btn-lg">My Recipes</a>
                     }
                     else
                     {
