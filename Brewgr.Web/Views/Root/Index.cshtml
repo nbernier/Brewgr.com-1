@@ -1,5 +1,6 @@
 ﻿@using Brewgr.Web
 @using ctorx.Core.Messaging
+@using Brewgr.Web.Core.Model
 
 @model HomePageViewModel
 
@@ -15,12 +16,17 @@
             <div id="hero-image">
                 <div class="wrapper">
                     <h1>Connecting the world's homebrewers.</h1>
-                    <a href="@Url.Action("homebrew-recipe-calculator", "Recipe", null, "http")" class="btn btn-success btn-lg">Start crafting great beer!</a>
+                    @if (ViewBag.ActiveUser != null)
+                    {
+                        <a href="@Url.Action("homebrew-recipe-calculator", "Recipe", null, "http")" class="btn btn-success btn-lg">New Recipe</a>
+                        <a href="@Url.UserProfileUrl((ViewBag.ActiveUser as UserSummary).Username)">My Recipes</a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("homebrew-recipe-calculator", "Recipe", null, "http")" class="btn btn-success btn-lg">Start crafting great beer!</a>
+                    }
                 </div>
             </div>
-
-
-            @*<img src="/img/HomePage_20120730.jpg" class="img-responsive full-width-img" />*@
         </div>
     </div>
     <div class="row">
