@@ -14,6 +14,19 @@
 
     <title>@ViewBag.Title | Brewgr</title>
 
+    <!-- Google Tag Manager -->
+    <script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+            'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PV32DQ3');
+    </script>
+    <!-- End Google Tag Manager -->
+
     @if (!string.IsNullOrWhiteSpace(ViewBag.Canonical))
     {
         <link rel="canonical" href="@(ViewBag.Canonical)" />
@@ -40,6 +53,12 @@
     <script>(function (w, d, u) { w.readyQ = []; w.bindReadyQ = []; function p(x, y) { if (x == "ready") { w.bindReadyQ.push(y); } else { w.readyQ.push(x); } }; var a = { ready: p, bind: p }; w.$ = w.jQuery = function (f) { if (f === d || f === u) { return a } else { p(f) } } })(window, document)</script>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PV32DQ3" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     @RenderBody()
 
     @* jQuery from Google CDN with fallback *@
@@ -69,17 +88,12 @@
     @* DataTables *@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-    
+
 
     @* Scripts Bundle *@
     @Scripts.Render("~/bundles/js")
 
     @* Scripts Insertion Point *@
     @RenderSection("Scripts", false)
-
-    @if (ViewBag.Environment == "prod" && (ViewBag.ActiveUser == null || !ViewBag.ActiveUser.IsAdmin))
-    {
-        @Html.Partial("_TrackingScript")
-    }
 </body>
 </html>
