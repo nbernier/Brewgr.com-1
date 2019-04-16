@@ -15,23 +15,6 @@
         <div class="row">
             <section class="col-xs-12 col-sm-12 col-md-8 col-lg-9">
 
-
-
-                @if (ViewBag.ActiveUser == null)
-                {
-                    <div class="ad-sense" style="width: 728px; margin: 0 auto 18px auto;">
-                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                        <!-- Brewgr - NotLoggedIn-Letterboard -->
-                        <ins class="adsbygoogle"
-                             style="display:inline-block;width:728px;height:90px"
-                             data-ad-client="ca-pub-6867430027291087"
-                             data-ad-slot="5609122905"></ins>
-                        <script>
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-                        </script>
-                    </div>
-                }
-
                 @* Send To Shop Intro *@
                 @if (ViewBag.RecipeCreationOptions.SendToShopSettings.IsEnabled)
                 {
