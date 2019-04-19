@@ -66,8 +66,20 @@ namespace Brewgr.Web
 				context.Response.RedirectPermanent(newUrl);
 			}
 
-			// Handle Partner Detection
-			if (!string.IsNullOrWhiteSpace(context.Request.QueryString["pid"]))
+            if (!Context.Request.IsSecureConnection)
+            {
+                // This is an insecure connection, so redirect to the secure version
+                UriBuilder uri = new UriBuilder(Context.Request.Url);
+                if (!uri.Host.Equals("localhost"))
+                {
+                    uri.Port = 443;
+                    uri.Scheme = "https";
+                    Response.Redirect(uri.ToString());
+                }
+            }
+
+            // Handle Partner Detection
+            if (!string.IsNullOrWhiteSpace(context.Request.QueryString["pid"]))
 			{
 				var kernel = KernelPersister.Get();
 				var partnerService = kernel.Get<IPartnerService>();
