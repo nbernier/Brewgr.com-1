@@ -88,7 +88,7 @@ namespace Brewgr.Web.Controllers
 				return this.Issue404();
 			}
 
-			return View("UnCategorized", new UnCategorizedRecipesViewModel { Recipes = recipes, Pager = pager, 
+			return View("UnCategorized", new UnCategorizedRecipesViewModel { Recipes = Mapper.Map(recipes, new List<RecipeSummaryViewModel>()), Pager = pager, 
 				BaseUrl = Url.Action("other-homebrew-recipes", "Recipe", new { page = (int?)null }, "http")});
 		}
 
