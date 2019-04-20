@@ -13,28 +13,19 @@
             <li>
                 <a href="@Url.UserProfileUrl(user.Username)" class="trigger">@user.Username</a>
                 <ul>
-                    @* Admin Tools *@
-                    @if (user.IsAdmin)
-                    {
-                        <li>
-                            <a href="@Url.Action("tools", "admin", null, Url.Https())">Admin Tools</a>
-                            <ul>
-                                <li><a href="@Url.Action("Affiliates", "Admin")" target="_blank">Affiliates</a></li>
-                                <li><a href="@Url.Action("Exceptions", "Admin")" target="_blank">View Exception Log</a></li>
-                            </ul>
-                        </li>
-                    }@* Partner Tools *@
-                    @if (user.IsPartner)
-                    {
-                        <li><a href="@Url.Action("tools", "partner", null, Url.Https())"><span>Partner Tools</span></a></li>
-                    }
-
-                    
                     <li><a href="@Url.UserProfileUrl((ViewBag.ActiveUser as UserSummary).Username)">My Recipes</a></li>
                     <li><a href="@Url.UserProfileUrl((ViewBag.ActiveUser as UserSummary).Username)/#sessions">My Brew Sessions</a> </li>
                     <li><a href="@Url.UserProfileUrl(user.Username)">Profile</a></li>
                     <li><a href="@Url.Action("settings", "User", null, Url.Https())">Edit Profile</a></li>
                     <li><a href="@Url.Action("logout", "auth", null, Url.Https())" data-returnurl="@Server.UrlEncode(Request.Url.PathAndQuery)" class="sign-out-link">Sign Out</a></li>
+
+                    @* Admin Tools *@
+                    @if (user.IsAdmin)
+                    {
+                        <li><a href="@Url.Action("tools", "admin", null, Url.Https())">Admin Tools</a></li>
+                        <li><a href="@Url.Action("Exceptions", "Admin")" target="_blank">View Exception Log</a></li>
+                    }
+
                 </ul>
 
             </li>
