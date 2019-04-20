@@ -58,7 +58,7 @@
     @using (Html.BeginForm("SaveRecipe", "Recipe", FormMethod.Post, new { id = "RecipeForm", enctype = "multipart/form-data" }))
     {
         <input type="hidden" name="RecipeJson" id="RecipeJson" />
-        <div id="PhotoDialog" class="modal">
+        <div id="PhotoDialog" class="">
             @Html.Partial("_BuilderPhotoDialog", Model)
 
             <a href="#" class="button button_green margintop20" id="SavePhotoButton">Close</a>
