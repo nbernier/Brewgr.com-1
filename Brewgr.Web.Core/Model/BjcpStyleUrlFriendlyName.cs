@@ -2,7 +2,8 @@ using System;
 
 namespace Brewgr.Web.Core.Model
 {
-	public class BjcpStyleUrlFriendlyName
+    [System.ComponentModel.DataAnnotations.Schema.Table("BjcpStyleUrlFriendlyName_2015")]
+    public class BjcpStyleUrlFriendlyName
 	{
 		/// <summary>
 		/// Gets or sets the SubCategoryId

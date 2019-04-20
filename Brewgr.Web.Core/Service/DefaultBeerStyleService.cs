@@ -210,7 +210,7 @@ namespace Brewgr.Web.Core.Service
                 {
                     foreach (XmlNode category in currentClass.SelectNodes("category"))
                     {
-                        var categoryid = Int32.Parse(category.Attributes["id"].Value);
+                        var categoryid = category.Attributes["id"].Value;
                         var categoryname = category.SelectSingleNode("name").InnerText;
 
                         foreach (XmlNode subcategory in category.SelectNodes("subcategory"))

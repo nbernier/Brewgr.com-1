@@ -39,25 +39,46 @@
             <div class="col-sm-4">
                 <h2>New Homebrew Recipes</h2>
                 @foreach (var recipeSummary in Model.NewRecipes)
-                {
-                    @Html.Partial("_RecipeWidget", recipeSummary)
-                }
+            {
+                @Html.Partial("_RecipeWidget", recipeSummary)
+        }
             </div>
             <div class="col-sm-4">
                 <h2>Top Weekly Contributors</h2>
                 @foreach (var userSummary in Model.TopContributors)
-                {
-                    @Html.Partial("_UserWidget", userSummary)
-                }
+            {
+                @Html.Partial("_UserWidget", userSummary)
+        }
             </div>
             <div class="col-sm-4">
                 <h2>Popular Recipes</h2>
                 @foreach (var recipeSummary in Model.PopularRecipes)
-                {
-                    @Html.Partial("_RecipeWidget", recipeSummary)
-                }
+            {
+                @Html.Partial("_RecipeWidget", recipeSummary)
+        }
             </div>
         </div>
+
+        @if (ViewBag.ActiveUser != null)
+    {
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Latest Brewgr Updates</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            <li>Updated the BJCP Styles from the old styles to the new. All Category IDs and Sub Category IDs have been changed. Recipes have been updated accordingly.</li>
+                            <li>Site structure has been updated to work better on mobile devices.</li>
+                        </ul>
+                        <p>If you have any feedback please email <a href="mailto:brewgr@brewgr.com">brewgr@brewgr.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+}
+
 
         <div class="row">
             <div class="col-sm-4">
@@ -80,6 +101,17 @@
                 <p>Each day more and more homebrewers like you are joining Brewgr's continually growing homebrew community and becoming better homebrewers through sharing of homebrew recipes and homebrew tips. Join today and take your homebrewing skills to the next level.</p>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>How To Brew All Grain - Session IPA</h2>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/WXVCToBLmdk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        
 
     </div>
 </div>

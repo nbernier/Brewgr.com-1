@@ -70,7 +70,7 @@ namespace Brewgr.Web
             {
                 // This is an insecure connection, so redirect to the secure version
                 UriBuilder uri = new UriBuilder(Context.Request.Url);
-                if (!uri.Host.Equals("localhost"))
+                if (!uri.Host.Equals("localhost") && !url.Host.Contains("dev.brewgr.com"))
                 {
                     uri.Port = 443;
                     uri.Scheme = "https";
