@@ -10,7 +10,7 @@ namespace Brewgr.Web.Core.Configuration
 		/// </summary>
 		public override string RootPath
 		{
-			get { return "http://brewgr.com"; }
+			get { return "https://brewgr.com"; }
 		}
 
 		/// <summary>
@@ -26,7 +26,7 @@ namespace Brewgr.Web.Core.Configuration
 		/// </summary>
 		public override string StaticRootPath
 		{
-			get { return "http://static.brewgr.com"; }
+			get { return "https://static.brewgr.com"; }
 		}
 
 		/// <summary>

@@ -147,7 +147,7 @@ namespace Brewgr.Web.Core.Model
 		{
 			var notes = new StringBuilder();
 
-			notes.AppendLine("This recipe was exported from http://brewgr.com.  ");
+			notes.AppendLine("This recipe was exported from https://brewgr.com.  ");
 			
 			if (!string.IsNullOrWhiteSpace(recipe.Description))
 			{

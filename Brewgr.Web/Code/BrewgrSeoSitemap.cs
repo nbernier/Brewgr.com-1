@@ -19,24 +19,23 @@ namespace Brewgr.Web
 
 		readonly string[] StaticLinks = new[]
 		{
-			"http://brewgr.com",
-			"http://brewgr.com/about",
-			"http://brewgr.com/features",
-			"http://brewgr.com/blog",
+			"https://brewgr.com",
+			"https://brewgr.com/about",
+			"https://brewgr.com/features",
+			"https://brewgr.com/blog",
 			"https://brewgr.com/login",
-			"http://brewgr.com/howitworks",
-			"http://brewgr.com/homebrew-recipes",
+			"https://brewgr.com/howitworks",
+			"https://brewgr.com/homebrew-recipes",
 			"https://brewgr.com/homebrew-recipe-calculator",
 			"https://brewgr.com/contact",
-            "http://brewgr.com/calculations",
-			"http://brewgr.com/calculations/original-gravity",
-			"http://brewgr.com/calculations/final-gravity",
-			"http://brewgr.com/calculations/srm-beer-color",
-			"http://brewgr.com/calculations/ibu-hop-bitterness",
-			"http://brewgr.com/calculations/alcohol-content",
-			"http://brewgr.com/calculations/calories",
-			"http://brewgr.com/calculators/hydrometer-correction",
-			"http://brewgr.com/pliny-the-elder-clone-recipes"
+            "https://brewgr.com/calculations",
+			"https://brewgr.com/calculations/original-gravity",
+			"https://brewgr.com/calculations/final-gravity",
+			"https://brewgr.com/calculations/srm-beer-color",
+			"https://brewgr.com/calculations/ibu-hop-bitterness",
+			"https://brewgr.com/calculations/alcohol-content",
+			"https://brewgr.com/calculations/calories",
+			"https://brewgr.com/calculators/hydrometer-correction"
 		};
 
 		/// <summary>
