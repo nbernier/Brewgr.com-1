@@ -97,8 +97,61 @@ namespace Brewgr.Web.Controllers
 		/// </summary>
 		public ActionResult StyleDetail(string urlFriendlyName, int? page)
 		{
-			// 301 for old page 1 URL from previous button
-			if(page != null && page.Value == 1)
+            // temp 301 redirects for old bjcp styles
+            Dictionary<string, string> oldStyleLookUp = new Dictionary<string, string>
+            {
+                {"premium-american-lager","international-pale-lager"},
+                {"düsseldorf-altbier","altbier"},
+                {"german-pilsner-pils","german-pils"},
+                {"dunkelweizen","dunkles-weissbier"},
+                {"standard-american-lager","american-lager"},
+                {"southern-english-brown","sahti"},
+                {"american-wheat-or-rye-beer","american-wheat-beer"},
+                {"other-specialty-cider-perry","specialty-ciderperry"},
+                {"weizen-weissbier","weissbier"},
+                {"bohemian-pilsener","czech-premium-pale-lager"},
+                {"extra-special-strong-bitter-english-pale-ale","strong-bitter"},
+                {"oktoberfest-mã¤rzen","marzen"},
+                {"common-perry","new-world-perry"},
+                {"maibock-helles-bock","helles-bock"},
+                {"classic-rauchbier","rauchbier"},
+                {"scottish-export-80","scottish-export"},
+                {"special-best-premium-bitter","best-bitter"},
+                {"common-cider","new-world-cider"},
+                {"scottish-heavy-70","scottish-heavy"},
+                {"kölsch","kolsch"},
+                {"dortmunder-export","german-helles-exportbier"},
+                {"dry-stout","irish-stout"},
+                {"imperial-ipa","double-ipa"},
+                {"russian-imperial-stout","imperial-stout"},
+                {"robust-porter","american-porter"},
+                {"straight-unblended-lambic","lambic"},
+                {"scottish-light-60","scottish-light"},
+                {"mild","dark-mild"},
+                {"northern-english-brown-ale","british-brown-ale"},
+                {"dark-american-lager","international-dark-lager"},
+                {"flanders-brown-ale-oud-bruin","oud-bruin"},
+                {"california-common-beer","california-common"},
+                {"brown-porter","english-porter"},
+                {"roggenbier-german-rye-beer","london-brown-ale"},
+                {"schwarzbier-black-beer","munich-dunkel"},
+                {"lite-american-lager","american-light-lager"},
+                {"traditional-bock","dunkles-bock"},
+                {"fruit-cider","cider-with-other-fruit"},
+                {"standard-ordinary-bitter","ordinary-bitter"},
+                {"strong-scotch-ale","wee-heavy"},
+                {"classic-american-pilsner","pre-prohibition-porter"}
+            };
+
+            if (oldStyleLookUp.ContainsKey(urlFriendlyName))
+            {
+                var newStyleName = oldStyleLookUp[urlFriendlyName];
+                return this.RedirectPermanent(Request.Url.ToString().Replace(urlFriendlyName, newStyleName));
+            }
+            
+
+            // 301 for old page 1 URL from previous button
+            if (page != null && page.Value == 1)
 			{
 				return this.RedirectPermanent(Request.Url.ToString().Replace("/1", ""));
 			}
