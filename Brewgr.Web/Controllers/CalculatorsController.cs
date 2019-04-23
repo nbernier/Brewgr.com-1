@@ -55,5 +55,14 @@ namespace Brewgr.Web.Controllers
         {
             return this.View(new BrewSessionViewModel());
         }
+
+        /// <summary>
+        /// Executes the View for CalculatorsMashSpargeWater
+        /// </summary>
+        [Route("mash-tun-capacity")]
+        public ViewResult CalculatorsMashTunCapacity()
+        {
+            return this.View();
+        }
     }
 }

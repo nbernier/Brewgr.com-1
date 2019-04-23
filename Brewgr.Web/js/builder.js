@@ -1015,6 +1015,7 @@ var SessionBuilder =
             TotalWaterNeeded: SessionBuilder.getValue('[data-name=s_TotalWaterNeeded]'),
             StrikeWaterTemp: SessionBuilder.getValue('[data-name=s_StrikeWaterTemp]'),
             StrikeWaterVolume: SessionBuilder.getValue('[data-name=s_StrikeWaterVolume]'),
+            MashTunCapacity: SessionBuilder.getValue('[data-name=s_MashTunCapacity]'),
             FirstRunningsVolume: SessionBuilder.getValue('[data-name=s_FirstRunningsVolume]'),
             SpargeWaterVolume: SessionBuilder.getValue('[data-name=s_SpargeWaterVolume]'),
             BrewKettleLoss: SessionBuilder.getValue('[data-name=s_BrewKettleLoss]'),

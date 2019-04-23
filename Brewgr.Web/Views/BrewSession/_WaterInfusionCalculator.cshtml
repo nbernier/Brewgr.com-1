@@ -176,7 +176,7 @@
 
         </div>
 
-        <div class="col-sm-6"  id="s_waterOut">
+        <div class="col-sm-6" id="s_waterOut">
 
             <h3>Calculated Totals</h3>
 
@@ -212,6 +212,19 @@
                 </label>
                 <div class="col-sm-4 col-xs-10">
                     <input type="text" data-name="s_StrikeWaterVolume" value="@Model.StrikeWaterVolume" disabled="disabled" class="wc_strikeVol form-control" />
+                </div>
+                <div class="col-sm-3 col-xs-2 measurement">
+                    <span data-unit="s">gals</span>
+                    <span data-unit="m">liters</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-5 control-label">
+                   Mash Tun Capacity
+                </label>
+                <div class="col-sm-4 col-xs-10">
+                    <input type="text" data-name="s_MashTunCapacity" value="@Model.MashTunCapacity" disabled="disabled" class="wc_mashtuncapacity form-control" />
                 </div>
                 <div class="col-sm-3 col-xs-2 measurement">
                     <span data-unit="s">gals</span>

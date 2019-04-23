@@ -814,6 +814,10 @@ var WaterCalc =
         var mashStrikeVol = ((input.mashThickness * input.grain) / 4) + input.mashTunLoss;
         this.setValue('.wc_strikeVol', util.gal_To_l, mashStrikeVol);
 
+        // Mash Tun Capacity
+        var mashTunCapacity = input.grain * (.08 + input.mashThickness / 4);
+        this.setValue('.wc_mashtuncapacity', util.gal_To_l, mashTunCapacity);
+
         // First Runnings 
         var firstRunnings = mashStrikeVol - (input.grain) * input.mashAbsorp;
         this.setValue('.wc_firstRunnings', util.gal_To_l, firstRunnings);
