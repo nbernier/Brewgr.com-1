@@ -74,26 +74,31 @@
 
                     @if (ViewBag.SendToShopSettings != null)
                     {
-                        <a href="@Url.Action("Create", "SendToShop", new { RecipeId = Model.RecipeViewModel.RecipeId })" class="button button_black widebutton margintop10 ">Send to @ViewBag.SendToShopSettings.PartnerName</a>
+                    <a href="@Url.Action("Create", "SendToShop", new { RecipeId = Model.RecipeViewModel.RecipeId })" class="button button_black widebutton margintop10 ">Send to @ViewBag.SendToShopSettings.PartnerName</a>
                     }
 
-                    <a href="@Url.RecipeCloneUrl(Model.RecipeViewModel.RecipeId)" rel="nofollow" class="button button_green widebutton margintop10" rel="nofollow">Clone This Recipe</a>
+                    <a href="@Url.RecipeCloneUrl(Model.RecipeViewModel.RecipeId)" rel="nofollow" class="button button_green widebutton margintop10">Clone This Recipe</a>
+
+                    @if (ViewBag.ActiveUser != null && ViewBag.ActiveUser.UserId == Model.RecipeViewModel.CreatedBy)
+                    {
+                    <a href="@Url.RecipeDetailUrl(Model.RecipeViewModel.RecipeId, Model.RecipeViewModel.Name, Model.RecipeViewModel.StyleName)" rel="nofollow" class="button button_green widebutton margintop10">Edit Recipe</a>
+                    }
 
                     @if (!string.IsNullOrWhiteSpace(Model.RecipeViewModel.StyleId))
                     {
-                        @Html.Partial("_RecipeStyleGuide", Model.RecipeViewModel)
+                    @Html.Partial("_RecipeStyleGuide", Model.RecipeViewModel)
                     }
 
                     @* Similar Recipes *@
                     @if (ViewBag.SimilarRecipes.Count > 0)
                     {
-                        <div id="similar-recipesOOO">
-                            <h3 class="green margintop20">Similar Homebrew Recipes</h3>
-                            @foreach (RecipeSummary recipeSummary in ViewBag.SimilarRecipes)
-                            {
-                                @Html.Partial("_RecipeWidget", recipeSummary)
-                            }
-                        </div>
+                    <div id="similar-recipesOOO">
+                    <h3 class="green margintop20">Similar Homebrew Recipes</h3>
+                    @foreach (RecipeSummary recipeSummary in ViewBag.SimilarRecipes)
+                    {
+                    @Html.Partial("_RecipeWidget", recipeSummary)
+                    }
+                    </div>
                     }
                 </div>
                 @*</div>*@

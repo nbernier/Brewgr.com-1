@@ -104,11 +104,11 @@
                     <div class="floatleft margintop5">
                         <a href="#" id="ScalePopupTrigger" class="button_small button_black">Scale</a>
                         <a href="#" id="PhotoPopupTrigger" class="button_small button_black">@(Model.HasImage ? "New Photo" : "Add a Photo")</a>
-
                         @if (!Model.IsNewRecipe())
                         {
                             <a href="@Url.RecipeCloneUrl(Model.RecipeId)" class="button_small button_black">Clone</a>
-                            <a href="@Url.RecipePrintUrl(Model.RecipeId)" class="button_small button_black new-window" rel="nofollow">Print</a>
+                            <a href="@Url.RecipeDetailUrl(Model.RecipeId, Model.Name, Model.StyleName)?public=true" class="button_small button_black">View</a>
+                            <a href="@Url.RecipePrintUrl(Model.RecipeId)" class="button_small button_black new-window" rel="nofollow">Shopping List</a>
                             <a href="#" class="button_small button_black delete-recipe" data-recipeid="@Model.RecipeId">Delete</a>
                         }
                     </div>
