@@ -296,10 +296,7 @@ function layout_onReady() {
 
 /* --------------------------------------------------- [ Common ] ---------------------------------------------------------- */
 function common_onReady() {
-    $('body').on('click', '.delete-brewsession', function (e) {
-        $.colorbox({ html: '<div style="padding: 12px 24px 0 24px;"><h3>Are you sure you want to delete this?</h3><p>Once you delete a brew session there is no way to get it back.<br /><a class="button button_black marginleft20 margintop10" href="/brew/' + $(this).attr("data-brewsessionid") + '/delete">Yes, Delete</a><a class="button button_black marginleft20 margintop10" href="#" onclick="$.colorbox.close()">No, don\'t delete</a><p/></div>', opacity: .35, overlayClose: false, escKey: false, scrolling: false });
-        return false;
-    });
+    
 
     $('body').on('click', '.delete-recipe', function (e) {
         $.colorbox({ html: '<div style="padding: 12px 24px 0 24px;"><h3>Are you sure you want to delete this?</h3><p>Once you delete a recipe there is no way to get it back.<br /><a class="button button_black marginleft20 margintop10" href="/recipe/' + $(this).attr("data-recipeid") + '/delete">Yes, Delete</a><a class="button button_black marginleft20 margintop10" href="#" onclick="$.colorbox.close()">No, don\'t delete</a><p/></div>', opacity: .35, overlayClose: false, escKey: false, scrolling: false });

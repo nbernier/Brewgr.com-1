@@ -16,10 +16,10 @@ namespace Brewgr.Web.Core.Model
 		/// </summary>
 		public int RecipeId { get; set; }
 
-		/// <summary>
-		/// Gets or sets the RecipeSummary
-		/// </summary>
-		public virtual RecipeSummary RecipeSummary { get; set; }
+        /// <summary>
+        /// Gets or sets the RecipeSummary
+        /// </summary>
+        public virtual RecipeSummary RecipeSummary { get; set; }
 
 		/// <summary>
 		/// Gets or sets the UserId
@@ -125,11 +125,16 @@ namespace Brewgr.Web.Core.Model
 		/// Gets or sets the MashTunLoss
 		/// </summary>
 		public double? MashTunLoss { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the HLTMTHeatLoss
+        /// </summary>
+        public double? HLTMTHeatLoss { get; set; }
 
-		/// <summary>
-		/// Gets or sets the BoilLoss
-		/// </summary>
-		public double? BoilLoss { get; set; }
+        /// <summary>
+        /// Gets or sets the BoilLoss
+        /// </summary>
+        public double? BoilLoss { get; set; }
 
 		/// <summary>
 		/// Gets or sets the MashGrainAbsorption

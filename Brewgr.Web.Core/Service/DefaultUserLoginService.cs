@@ -53,9 +53,10 @@ namespace Brewgr.Web.Core.Service
 				return false;
 			}
 
+            // TODO, TODOJZ, When debugging comment out
             if (!this.Hasher.Compare(password, matchingUser.Password))
             {
-            	return false;
+                return false;
             }
 
             userSummary = Mapper.Map(matchingUser, userSummary);

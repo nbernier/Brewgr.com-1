@@ -6,31 +6,49 @@
 @model BrewSessionViewModel
 
 @{
-	ViewBag.Title = "New Brew Session for " + Model.RecipeSummary.Name;
+    ViewBag.Title = "New Brew Session for " + Model.RecipeSummary.Name;
 }
 
-@* Style Bundle *@
-@Styles.Render("~/bundles/css/builder")
+<style>
+    #view-newbrewsession .btn { display: block; width: 100%; margin-bottom: 20px; }
+    #view-newbrewsession { margin-top: 20px; }
+</style>
 
-<div id="view-newbrewsession" class="content builder-wrapper">
+
+<div id="view-newbrewsession">
+
     <div class="container">
         <div class="row">
-            <section class="col-xs-12 col-sm-12 col-md-8 col-lg-9">
-                <div class="primary builder session">
-                    @Html.Partial("_BrewSessionForm", Model)
-                </div>
+            <section class="col-md-8 col-lg-9">
+                @Html.Partial("_BrewSessionForm", Model)
             </section>
-            <section class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+            <section class="col-md-4 col-lg-3">
                 <div class="compliment">
                     <div id="recipe-facts">
-                        @Html.Partial("_RecipeFacts", Model.RecipeSummary)
+                        @Html.Partial("_RecipeFactsNew", Model.RecipeSummary)
                     </div>
-                    <input type="submit" id="SaveBrewSessionButton" class="button button_green save-recipe margintop10" value="Save Brew Session" />
+                    <input type="submit" id="SaveBrewSessionButton" class="btn btn-success btn-lg" value="Save Brew Session" />
+                    <div class="actions">
+                        @if (!Model.IsNewBrewSession())
+                        {
+                            <a href="#" class="btn btn-danger btn-lg delete-brewsession" data-brewsessionid="@Model.BrewSessionId">Delete</a>
+                        }
+                        @if (Model.BrewSessionId > 0)
+                        {
+                            if (Model.RecipeSummary.BrewSessionCount > 1)
+                            {
+                                <a href="@Url.RecipeBrewSessionsUrl(Model.RecipeSummary.RecipeId, Model.RecipeSummary.Name)" class="btn btn-default btn-lg">Other Brew Sessions</a>
+                            }
+                            <a href="@Url.RecipeEditUrl(Model.RecipeId)" class="btn btn-default btn-lg">Go To Recipe</a>
+                        }
+                    </div>
                 </div>
+
             </section>
         </div>
     </div>
 </div>
+
 
 <div class="hidden">
     @using (Html.BeginForm("SaveSession", "BrewSession", FormMethod.Post, new { id = "SessionForm" }))
@@ -39,7 +57,7 @@
     }
 </div>
 
-@section Scripts
+@*@section Scripts
 {
     <script type="text/javascript">
         $(function () {
@@ -50,4 +68,4 @@
             }
         });
     </script>
-}
+}*@

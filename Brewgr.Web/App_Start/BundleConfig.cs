@@ -38,6 +38,7 @@ namespace Brewgr.Web
                     //"~/css/builder.css",
                     //"~/css/colorbox.css",
 
+                    "~/css/smoothness/jquery-ui-1.8.18.custom.css",
                     "~/css/structure.css",
                     "~/css/content.css",
                     "~/css/lib/colorbox.css"));
