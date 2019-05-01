@@ -36,12 +36,12 @@
                         <option value="20">Metric</option>
                     </select>
                 </div>
-                <div class="form-group brew-date">
+                <div class="form-group brew-date" v-if="!JustCalculator">
                     <label for="BrewDate">Brew Date</label>
                     <input type="text" name="BrewDate" data-name="s_BrewDate" class="datepicker form-control" v-model="BrewDate" />
                 </div>
             </div>
-            <div class="form-group notes">
+            <div class="form-group notes" v-if="!JustCalculator">
                 <label for="Notes">Notes</label> (Include any important notes from brew day until tasting)
                 <textarea name="notes" data-name="s_Notes" class="form-control" v-model="Notes"></textarea>
             </div>
@@ -413,7 +413,7 @@
 
 
     @*START: MASH/BOIL*@
-    <div class="panel panel-default">
+    <div class="panel panel-default" v-if="!JustCalculator">
         <div class="panel-heading">
             <h3 v-if="RecipeSummary.RecipeType === 'AllGrain'" class="panel-title">Mash / Boil</h3>
             <h3 v-if="RecipeSummary.RecipeType === 'Extract'" class="panel-title">Boil</h3>
@@ -590,7 +590,7 @@
 
 
     @*START: FERMENTATION*@
-    <div class="panel panel-default">
+    <div class="panel panel-default" v-if="!JustCalculator">
         <div class="panel-heading">
             <h3 class="panel-title">Fermentation</h3>
         </div>
@@ -653,7 +653,7 @@
 
 
     @*START: CONDITIONING*@
-    <div class="panel panel-default">
+    <div class="panel panel-default"  v-if="!JustCalculator">
         <div class="panel-heading">
             <h3 class="panel-title">Conditioning</h3>
         </div>
@@ -796,6 +796,7 @@
         var app = new Vue({
             el: '#brew-session-form',
             data: {
+                'JustCalculator': @((ViewBag.JustCalculator != null) ? "true" : "false"),
                 'UnitTypeSet': false,
                 'BrewSessionId': '@Model.BrewSessionId',
                 'RecipeId': '@Model.RecipeId',
@@ -806,7 +807,7 @@
                 'GrainTemp': '@Model.GrainTemp',
                 'BoilTime': '@Model.BoilTime',
                 'BoilVolumeEst': '@Model.BoilVolumeEst',
-                'FermentVolumeEst': @Model.FermentVolumeEst,
+                'FermentVolumeEst': '@Model.FermentVolumeEst',
                 'TargetMashTemp': '@Model.TargetMashTemp',
                 'MashThickness': '@Model.MashThickness',
                 'BrewKettleLoss': '@Model.BrewKettleLoss',

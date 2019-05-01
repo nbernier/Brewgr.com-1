@@ -1,4 +1,5 @@
-﻿@using Brewgr.Web.Core.Model
+﻿@using Brewgr.Web
+@using Brewgr.Web.Core.Model
 @model BrewSessionViewModel
 
 @{
@@ -12,26 +13,4 @@
 <h2 class="page-header visible-md visible-lg">Mash and Sparge Water Infusion Calculator</h2>
 
 
-
-
-        <div id="water-calc" class="calculations builder session">
-
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-3 col-sm-6">
-                        <div class="form-group">
-                            <label>Measurement</label>
-                            <select id="scale" class="form-control" data-name="s_UnitType">
-                                <option value="s" selected="selected">US</option>
-                                <option value="m">Metric</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            @Html.Partial("~/Views/BrewSession/_WaterInfusionCalculator.cshtml", Model)
-
-            @*</div>*@
-
-        </div>
+@Html.Partial("~/Views/BrewSession/_BrewSessionForm.cshtml", Model)

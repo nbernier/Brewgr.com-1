@@ -53,7 +53,12 @@ namespace Brewgr.Web.Controllers
         [Route("mash-sparge-water-infusion")]
         public ViewResult CalculatorsMashSpargeWater()
         {
-            return this.View(new BrewSessionViewModel());
+            var brewSessionViewModel = new BrewSessionViewModel();
+            var recipeSummary = new RecipeSummaryViewModel();
+            recipeSummary.RecipeTypeId = 10; 
+            brewSessionViewModel.RecipeSummary = recipeSummary;
+            ViewBag.JustCalculator = true;
+            return this.View(brewSessionViewModel);
         }
 
         /// <summary>
