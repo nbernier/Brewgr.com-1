@@ -51,7 +51,7 @@
 			{
 				<tfoot>
 					<tr>
-						<td class="aligncenter" id="h-ounce-total">@Model.Hops.Sum(x => Converter.Convert<double>(x.Amt)).ToString().TrimEnd('0') @(Model.UnitType == "s" ? "oz" : "g")</td>
+						<td class="aligncenter" id="h-ounce-total">@Model.Hops.Sum(x => Converter.Convert<double>(x.Amt)).ToString() @(Model.UnitType == "s" ? "oz" : "g")</td>
 					    <td colspan="6" class="alignright options paddingright10">
 					        IBUs calculated using the @Model.GetIbuFormulaName() formula
 					    </td>
@@ -110,7 +110,7 @@ Amt = x1.Sum(c => Decimal.Parse(c.Amt)).ToString()
             {
                 <tfoot>
                     <tr>
-                        <td class="aligncenter" id="h-ounce-total">@Model.Hops.Sum(x => Converter.Convert<double>(x.Amt)).ToString().TrimEnd('0') @(Model.UnitType == "s" ? "oz" : "g")</td>
+                        <td class="aligncenter" id="h-ounce-total">@Model.Hops.Sum(x => Converter.Convert<double>(x.Amt)).ToString() @(Model.UnitType == "s" ? "oz" : "g")</td>
                         <td colspan="3" class="alignright options paddingright10">
                            &nbsp;
                         </td>
