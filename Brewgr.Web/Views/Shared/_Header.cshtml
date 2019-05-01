@@ -13,13 +13,13 @@
                     <li>
                         <a>Recipes</a>
                         <ul>
-                            <li><a href="@Url.Action("homebrew-recipes", "Recipe", null, "http")"><span>Homebrew Recipes</span></a></li>
-                            <li><a href="@Url.Action("homebrew-recipe-calculator", "Recipe", null, Url.Https())">Create a New Recipe</a></li>
                             @if (ViewBag.ActiveUser != null)
                             {
                                 <li><a href="@Url.UserProfileUrl((ViewBag.ActiveUser as UserSummary).Username)">My Recipes</a></li>
                                 <li><a href="@Url.UserProfileUrl((ViewBag.ActiveUser as UserSummary).Username)/#sessions">My Brew Sessions</a> </li>
                             }
+                            <li><a href="@Url.Action("homebrew-recipes", "Recipe", null, "http")"><span>Homebrew Recipes</span></a></li>
+                            <li><a href="@Url.Action("homebrew-recipe-calculator", "Recipe", null, Url.Https())">Create a New Recipe</a></li>
                             <li><a href="#" class="recipe-import" rel="nofollow">Import Beer Xml</a></li>
                         </ul>
                     </li>
