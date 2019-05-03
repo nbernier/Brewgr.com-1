@@ -294,13 +294,17 @@ abbr.timeago { display: none; border: 0; cursor: default; } /* Hide TimeAgo by D
 .recipe-widget h4 { margin-top: 0px; margin-bottom: 2px; }
 #vw-home .user-widget h4 { margin-top: 0px; margin-bottom: 2px; }
 #vw-home #hero-image { text-align: center; height: 500px; background: #e8eced url('/img/home-brew-single-teir.jpg') no-repeat center; }
+#vw-home .wrapper-mobile { text-align: center; margin-top: 30px !important; }
 #vw-home .wrapper { margin: 0 auto; background-color: rgba(0, 0, 0, 0.6); display: inline-block; padding: 2%; margin-top: 100px; border-radius: 20px; }
-#vw-home .wrapper h1 { color: #fff; margin: 0px 0px 40px; font-size: 40px; font-weight: bold; }
+#vw-home .wrapper h1 { color: #fff; margin: 0px 0px 40px; font-size: 30px; font-weight: bold; }
 #vw-home .home-search { margin-top: 40px; margin-bottom: 20px; text-align: center; }
 #vw-home .home-search .input-group { width: 40%; margin: 0 auto; }
+.carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img { width:100%;}
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 767px) { 
     #vw-home .home-search .input-group { width: 100%; margin: 0 auto; }
+    #brewgr-hp-carousel { margin-top:90px; }
+    .carousel-caption { display:none;}
 }
 
 /* ------------------------------------------------------------------------------------------*/
