@@ -299,7 +299,7 @@ function common_onReady() {
     
 
     $('body').on('click', '.delete-recipe', function (e) {
-        $.colorbox({ html: '<div style="padding: 12px 24px 0 24px;"><h3>Are you sure you want to delete this?</h3><p>Once you delete a recipe there is no way to get it back.<br /><a class="button button_black marginleft20 margintop10" href="/recipe/' + $(this).attr("data-recipeid") + '/delete">Yes, Delete</a><a class="button button_black marginleft20 margintop10" href="#" onclick="$.colorbox.close()">No, don\'t delete</a><p/></div>', opacity: .35, overlayClose: false, escKey: false, scrolling: false });
+        $.colorbox({ html: '<div style="padding: 12px 24px 0 24px;"><h3>Are you sure you want to delete this?</h3><p>Once you delete a recipe there is no way to get it back.<br /><a class="btn btn-danger btn-md" href="/recipe/' + $(this).attr("data-recipeid") + '/delete">Yes, Delete</a><a class="bbtn btn-default btn-md" href="#" onclick="$.colorbox.close()">No, don\'t delete</a><p/></div>', opacity: .35, overlayClose: false, escKey: false, scrolling: false });
         return false;
     });
 
@@ -312,7 +312,7 @@ function common_onReady() {
 
     // Delete Tasting Notes
     $('#tastingnotes').on('click', 'a[data-tastingnoteid]', function () {
-        $.colorbox({ html: '<div style="padding: 12px 24px 0 24px;"><h3>Are you sure you want to delete this?</h3><p>Once you delete tasting notes there is no way to get them back.<br /><a class="button button_black marginleft20 margintop10" href="#" onclick="deleteTastingNote(' + $(this).attr("data-tastingnoteid") + '); $.colorbox.close(); return false;">Yes, Delete</a><a class="button button_black marginleft20 margintop10" href="#" onclick="$.colorbox.close(); return false;">No, don\'t delete</a><p/></div>', opacity: .35, overlayClose: false, escKey: false, scrolling: false });
+        $.colorbox({ html: '<div style="padding: 12px 24px 0 24px;"><h3>Are you sure you want to delete this?</h3><p>Once you delete tasting notes there is no way to get them back.<br /><a class="btn btn-danger btn-md" href="#" onclick="deleteTastingNote(' + $(this).attr("data-tastingnoteid") + '); $.colorbox.close(); return false;">Yes, Delete</a><a class="btn btn-default btn-md" href="#" onclick="$.colorbox.close(); return false;">No, don\'t delete</a><p/></div>', opacity: .35, overlayClose: false, escKey: false, scrolling: false });
         return false;
     });
 
@@ -508,7 +508,7 @@ function builder_onReady() {
         // Delete Recipe Event
         $(".delete-recipe").click(function (e) {
             var currentElem = $(this);
-            $.colorbox({ html: '<h3>Are you sure you want to delete this?</h3><p>Once you delete a recipe there is no way to get it back.<br /><a class="button button_black marginleft20 margintop10" onclick="$(\'.builder\').removeAttr(\'data-formchanged\');" href="/recipe/' + $(this).attr("data-recipeid") + '/delete">Yes, Delete</a><a class="button button_black marginleft20 margintop10" href="#" onclick="$.colorbox.close(); return false;">No, don\'t delete</a><p/>', opacity: .35, overlayClose: false, escKey: false, scrolling: false });
+            $.colorbox({ html: '<h3>Are you sure you want to delete this?</h3><p>Once you delete a recipe there is no way to get it back.<br /><a class="btn btn-danger btn-md" onclick="$(\'.builder\').removeAttr(\'data-formchanged\');" href="/recipe/' + $(this).attr("data-recipeid") + '/delete">Yes, Delete</a><a class="btn btn-default btn-md" href="#" onclick="$.colorbox.close(); return false;">No, don\'t delete</a><p/>', opacity: .35, overlayClose: false, escKey: false, scrolling: false });
             return false;
         });
     }

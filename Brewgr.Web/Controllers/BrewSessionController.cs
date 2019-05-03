@@ -63,6 +63,8 @@ namespace Brewgr.Web.Controllers
 			commentWrapperViewModel.CommentType = CommentType.Session;
 			brewSessionViewModel.CommentWrapperViewModel = commentWrapperViewModel;
 
+            ViewBag.BrewSessionView = true;
+
 			return View(brewSessionViewModel);
 		}
 

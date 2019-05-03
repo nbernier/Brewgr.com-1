@@ -40,7 +40,7 @@ var SessionBuilder =
             $('textarea[data-name=s_Notes]').autosize();
             
             // Wire Save Button
-            $('#SaveBrewSessionButton').click(function () {
+            $('.SaveBrewSessionButton').click(function () {
                 SessionBuilder.save();
             });
         },
