@@ -22,7 +22,7 @@
             <section class="col-md-8 col-lg-9">
                 @Html.Partial("_BrewSessionForm", Model)
 
-                <div class="actions hidden-sm">
+                <div class="actions">
                     <input type="submit" id="" class="btn btn-success btn-lg save-recipe SaveBrewSessionButton" value="Save Brew Session" />
                     @if (!Model.IsNewBrewSession())
                     {
@@ -52,20 +52,22 @@
                     <div id="recipe-facts">
                         @Html.Partial("_RecipeFactsNew", Model.RecipeSummary)
                     </div>
-                    <input type="submit" id="" class="btn btn-success btn-lg save-recipe SaveBrewSessionButton" value="Save Brew Session" />
-                    <div class="actions">
-                    @if (!Model.IsNewBrewSession())
-                    {
-                        <a href="#" class="btn btn-danger btn-lg delete-brewsession" data-brewsessionid="@Model.BrewSessionId">Delete</a>
-                    }
-                    @if (Model.BrewSessionId > 0)
-                    {
-                    if (Model.RecipeSummary.BrewSessionCount > 1)
-                    {
+                    <div class="hidden-sm hidden-xs">
+                        <input type="submit" id="" class="btn btn-success btn-lg save-recipe SaveBrewSessionButton" value="Save Brew Session" />
+                        <div class="actions">
+                            @if (!Model.IsNewBrewSession())
+            {
+                <a href="#" class="btn btn-danger btn-lg delete-brewsession" data-brewsessionid="@Model.BrewSessionId">Delete</a>
+}
+                            @if (Model.BrewSessionId > 0)
+            {
+                if (Model.RecipeSummary.BrewSessionCount > 1)
+                {
                     <a href="@Url.RecipeBrewSessionsUrl(Model.RecipeSummary.RecipeId, Model.RecipeSummary.Name)" class="btn btn-default btn-lg">Other Brew Sessions</a>
-                    }
-                    <a href="@Url.RecipeEditUrl(Model.RecipeId)" class="btn btn-default btn-lg">Go To Recipe</a>
-                    }
+}
+                <a href="@Url.RecipeEditUrl(Model.RecipeId)" class="btn btn-default btn-lg">Go To Recipe</a>
+}
+                        </div>
                     </div>
                 </div>
 
