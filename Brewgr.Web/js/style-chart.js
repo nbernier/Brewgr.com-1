@@ -175,6 +175,7 @@ var StyleChart = {
         if (low == 0 && high == 0) {
             return true;
         }
+        debugger;
         return ((current >= low) && (current <= high));
     },
 
@@ -271,6 +272,7 @@ var StyleChart = {
 
         // Add the tipsy mouse over flyout
         $('.bjcp-slider').tipsy();
+        $('.bjcp-scale .progress').tipsy();
     },
 
     // returns all styles sorted by closest match

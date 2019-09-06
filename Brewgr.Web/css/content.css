@@ -45,6 +45,7 @@ abbr.timeago { display: none; border: 0; cursor: default; } /* Hide TimeAgo by D
 .subhead, .view .subhead { color: #779e00; }
 .fine-print { font-size: 11px; color: #aaa; } 
 [data-rating] { width: 100px; height: 21px; }
+.compliment .btn { display: block; width: 100%; margin-bottom: 20px; }
 
 /* ------------------------------------------------------------------------------------------*/
 /* --------- List ------------------------------------------------------------------- */
@@ -64,7 +65,7 @@ abbr.timeago { display: none; border: 0; cursor: default; } /* Hide TimeAgo by D
 /* ------------------------------------------------------------------------------------------*/
 /* --------- Comments ---------------------------------------------------------------------- */
 /* ------------------------------------------------------------------------------------------*/
-.comments-wrapper { width: 90%; background-color: #f5f5f5; }
+.comments-wrapper { background-color: #f5f5f5; }
 .comments-wrapper .comment-list { padding: 0; list-style: none; }
 .comments-wrapper .comment-list li { margin: 0; margin-top: 10px; border-bottom: solid 1px #ddd; }
 .comments-wrapper .comment-list li:first-child { margin-top:0px; }
@@ -222,6 +223,7 @@ abbr.timeago { display: none; border: 0; cursor: default; } /* Hide TimeAgo by D
 #vw-recipedetail #recinfo .specs .row div:first-of-type { font-weight: bold; }
 #vw-recipedetail #recinfo .menu { position: absolute; right: 25px; }
 #vw-recipedetail #recinfo [data-rating] { margin-bottom: 4px; }
+.recipe-info #ratingind { margin: 10px 0px; }
 
 @media only screen and (min-width: 768px) {
 
@@ -290,7 +292,7 @@ abbr.timeago { display: none; border: 0; cursor: default; } /* Hide TimeAgo by D
 /* --------- Homepage ---------------------------------------------------------------------- */
 /* ------------------------------------------------------------------------------------------*/
 .recipe-widget .data .srm { width: 18px; height: 18px; float: left; margin-top: 0px; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; margin-right: 4px; padding-top: 0 !important; }
-.recipe-widget .data .item { padding-left:9px; padding-right:9px; }
+.recipe-widget .data .item { padding-left:5px; padding-right:5px; }
 .recipe-widget h4 { margin-top: 0px; margin-bottom: 2px; }
 #vw-home .user-widget h4 { margin-top: 0px; margin-bottom: 2px; }
 #vw-home #hero-image { text-align: center; height: 500px; background: #e8eced url('/img/home-brew-single-teir.jpg') no-repeat center; }

@@ -37,6 +37,7 @@ namespace Brewgr.Web
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
             BundleConfig.RegisterBuilderBundles(BundleTable.Bundles);
+            BundleConfig.RegisterBuilderBundlesNew(BundleTable.Bundles);
 
             MvcHandler.DisableMvcResponseHeader = true;
 

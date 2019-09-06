@@ -137,7 +137,7 @@ function Recipe(obj) {
     };
     
     // Instantiate from passed in object
-    if(obj != null) {
+    if (obj != null) {
         for(var prop in obj) {
             this[prop] = obj[prop];
         }
@@ -347,7 +347,10 @@ var Builder =
             });
 
             $('#TargetVolume').val(Number(Builder.getRecipe().BatchSize).toFixed(2)).removeClass("input-validation-error");
-            $.colorbox({ inline: true, href: '#ScaleDialog', opacity: .35, width: 600, height: 290, overlayClose: false, escKey: true, scrolling: false });
+            //$.colorbox({ inline: true, href: '#ScaleDialog', opacity: .35, width: 600, height: 290, overlayClose: false, escKey: true, scrolling: false });
+            $.colorbox({ inline: true, href: '#ScaleDialog', opacity: .35, width: "90%", maxWidth: "600px", overlayClose: false, escKey: true, scrolling: false });
+
+            
             return false;
         });
 
@@ -383,14 +386,14 @@ var Builder =
         // Photo Dialog
         if (Builder.isNewRecipe()) {
             $('#PhotoPopupTrigger').click(function () {
-                $.colorbox({ inline: true, href: '#PhotoDialog', opacity: .35, width: 600, height: 285, overlayClose: false, escKey: true, scrolling: false });
+                $.colorbox({ inline: true, href: '#PhotoDialog', opacity: .35, width: "90%", height: "35%", maxWidth: "600px", overlayClose: false, escKey: true, scrolling: false });
             });
             $('#SavePhotoButton').click(function () {
                 $.colorbox.close();
             });            
         } else {
             $('#PhotoPopupTrigger').click(function () {
-                $.colorbox({ iframe: true, href: '/builderchangerecipephoto/' + Builder.getRecipeId(), opacity: .35, width: 600, height: 325, overlayClose: false, escKey: true, scrolling: false });
+                $.colorbox({ iframe: true, href: '/builderchangerecipephoto/' + Builder.getRecipeId(), opacity: .35, width: "90%", height: "35%", maxWidth: "600px", overlayClose: false, escKey: true, scrolling: false });
             });
         }
 
@@ -569,19 +572,38 @@ var Builder =
     wireSorting : function() {
         $('.dataTable').each(function () {
             var dataName = $(this).attr('data-name');
-            $('[data-name=' + dataName + '] tbody').sortable({
-                containment: '[data-name=' + dataName + ']',
-                placeholder: 'placeholder',
-                start: function (event, ui) {
-                    ui.placeholder.html('<td colspan="10" class="placeholder">&nbsp;</td>');
-                },
-                update: function (event, ui) {
-                    // Re-Rank Table
-                    var type = $(ui.item).parents('table').attr('data-name').split('_')[0];
-                    Builder.reRankTable(type);
-                    Builder.refreshTabIndices();
-                }
-            });
+            if (typeof BUILDER_VERSION !== 'undefined' && BUILDER_VERSION == 2) {
+                $('[data-name=' + dataName + '].sort-wrap').sortable({
+                    connectWith: ".sort-wrap",
+                    containment: '[data-name=' + dataName + ']',
+                    tolerance: 'pointer',
+                    placeholder: 'placeholder',
+                    start: function (event, ui) {
+                        ui.placeholder.html('<div class="panel panel-default"><div class="panel-body"></div>');
+                    },
+                    update: function (event, ui) {
+                        // Re-Rank Table
+                        var type = $(ui.item).parents('.dataTable').attr('data-name').split('_')[0];
+                        Builder.reRankTable(type);
+                        Builder.refreshTabIndices();
+                    }
+                });
+            }
+            else {
+                $('[data-name=' + dataName + '] tbody').sortable({
+                    containment: '[data-name=' + dataName + ']',
+                    placeholder: 'placeholder',
+                    start: function (event, ui) {
+                        ui.placeholder.html('<td colspan="10" class="placeholder">&nbsp;</td>');
+                    },
+                    update: function (event, ui) {
+                        // Re-Rank Table
+                        var type = $(ui.item).parents('table').attr('data-name').split('_')[0];
+                        Builder.reRankTable(type);
+                        Builder.refreshTabIndices();
+                    }
+                });
+            }
         });
     },
 
@@ -606,17 +628,25 @@ var Builder =
 
     /// Re-Ranks a table
     reRankTable: function (type) {
-        $('[data-name=' + type + '_table] tbody tr').each(function (index, ele) {
-            $(ele).find('[data-name=' + type + '_Rank]').val(index + 1).change();
-            $(ele).find('[data-name=' + type + '_RankLabel]').text((index + 1) + '.');
-        });
+        if (typeof BUILDER_VERSION !== 'undefined' && BUILDER_VERSION == 2) {
+            $('[data-name=' + type + '_table] .row').each(function (index, ele) {
+                $(ele).find('[data-name=' + type + '_Rank]').val(index + 1).change();
+                $(ele).find('[data-name=' + type + '_RankLabel]').text((index + 1) + '.');
+            });
+        }
+        else {
+            $('[data-name=' + type + '_table] tbody tr').each(function (index, ele) {
+                $(ele).find('[data-name=' + type + '_Rank]').val(index + 1).change();
+                $(ele).find('[data-name=' + type + '_RankLabel]').text((index + 1) + '.');
+            });
+        }
     },
 
     // Pulls down ing row templates and adds them to the DOM
     // We do it this way to benefit from browser caching
-    prepTemplates : function() {
+    prepTemplates: function () {
         $.ajax({
-            url: '/buildertemplates-v2',
+            url: (typeof BUILDER_VERSION !== 'undefined' && BUILDER_VERSION == 2) ? '/buildertemplates-v2-2' : '/buildertemplates-v2',
             async: false,
             cache: true,
             success: function (t) {
@@ -751,8 +781,15 @@ var Builder =
         // Append the new Row (show header/footer, hide intro)
         var table = $('[data-name=' + type + '_table]');
         table.find('.introrow').remove();
-        table.find('thead, tfoot').show();        
-        table.find('tbody').append(row);
+           
+        if (typeof BUILDER_VERSION !== 'undefined' && BUILDER_VERSION == 2) {
+            table.next('.panel-footer').show();  
+            table.append(row);
+        }
+        else {
+            table.find('thead, tfoot').show();  
+            table.find('tbody').append(row);
+        }
 
         // Refresh Tab Indices
         Builder.refreshTabIndices();

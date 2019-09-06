@@ -6,12 +6,13 @@
 }
 
 <style>
-    .well { padding: 10px 0px; }
+    .facts.well { padding: 10px 0px; }
     .facts .first .color { width: 45px; height: 45px; float: right; }
     .facts h3 { margin-top: 8px; }
     .facts .list-group-item { padding: 5px 5px; }
     .facts section { padding-right: 10px; padding-left: 10px; }
     .facts .recipe-name { margin: 10px 0px;}
+    .facts .marginbottom10 { margin-bottom: 8px; }
 </style>
 
 <div class="well well-sm facts" itemprop="nutrition" itemscope itemtype="http://schema.org/NutritionInformation">
@@ -36,18 +37,23 @@
                     <li class="list-group-item">
                         <span class="badge">
                             <span data-name="facts_batchsize">@(Model.BatchSize <= 0 ? "5.00" : Model.BatchSize.ToString("F2"))</span>
+                            <span data-unit="s">Gallons</span>
+                            <span data-unit="m">Liters</span>
                         </span>
                         Batch Size
                     </li>
                     <li class="list-group-item">
                         <span class="badge">
                             <span data-name="facts_boilsize">@(Model.BoilSize <= 0 ? "6.50" : Model.BoilSize.ToString("F2"))</span>
+                            <span data-unit="s">Gallons</span>
+                            <span data-unit="m">Liters</span>
                         </span>
                         Boil Size
                     </li>
-                    <li class="list-group-item">
+                    <li class="list-group-item marginbottom10">
                         <span class="badge">
-                            <span data-name="facts_og">@(Model.BoilTime <= 0 ? "0" : Model.BoilTime.ToString()) <span>&nbsp;min</span></span>
+                            <span data-name="facts_boiltime">@(Model.BoilTime <= 0 ? "0" : Model.BoilTime.ToString())</span>
+                            <span>&nbsp;min</span>
                         </span>
                         Boil Time
                     </li>
@@ -57,11 +63,23 @@
                         </span>
                         OG
                     </li>
-                    <li class="list-group-item">
+                    <li class="list-group-item marginbottom10">
                         <span class="badge">
-                            <span data-name="facts_og">@(Model.Og <= 0 ? "1.000" : Model.Fg.ToString("F3"))</span>
+                            <span data-name="facts_fg">@(Model.Og <= 0 ? "1.000" : Model.Fg.ToString("F3"))</span>
                         </span>
                         FG
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge">
+                            <span data-name="facts_ibu">@(Model.Ibu <= 0 ? "0.0" : Model.Ibu.ToString("F1"))</span><span data-name="facts_ibuformula">&nbsp;IBU (@Model.GetIbuFormulaName().ToLower())</span>
+                        </span>
+                        Bitterness
+                    </li>
+                    <li class="list-group-item marginbottom10">
+                        <span class="badge">
+                            <span data-name="facts_bggu">@(Model.BgGu.ToString("F2"))</span>
+                        </span>
+                        BG:GU
                     </li>
                     <li class="list-group-item">
                         <span class="badge">
@@ -74,18 +92,6 @@
                             <span data-name="facts_efficiency">@(Model.Efficiency <= 0 ? "0" : (Model.Efficiency * 100).ToString())%</span>
                         </span>
                         Efficiency
-                    </li>
-                    <li class="list-group-item">
-                        <span class="badge">
-                            <span data-name="facts_ibu">@(Model.Ibu <= 0 ? "0.0" : Model.Ibu.ToString("F1"))</span><span data-name="facts_ibuformula">&nbsp;IBU (@Model.GetIbuFormulaName().ToLower())</span>
-                        </span>
-                        Bitterness
-                    </li>
-                    <li class="list-group-item">
-                        <span class="badge">
-                            <span data-name="facts_bggu">@(Model.BgGu.ToString("F2"))</span>
-                        </span>
-                        BG:GU
                     </li>
                     <li class="list-group-item">
                         <span class="badge">

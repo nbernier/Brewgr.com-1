@@ -6,7 +6,7 @@
 }
 
 @* Style Bundle *@
-@Styles.Render("~/bundles/css/builder")
+@Styles.Render("~/bundles/css/builder_V2")
 
 <div id="view-RecipeBrewSessions" class="content">
 
@@ -25,9 +25,9 @@
                 @* Nutrition Label *@
                 <div class="compliment">
 
-                    @Html.Partial("_RecipeFacts", Model.RecipeSummary)
+                    @Html.Partial("_RecipeFactsNew", Model.RecipeSummary)
 
-                    <a href="@Url.RecipeDetailUrl(Model.RecipeSummary.RecipeId, Model.RecipeSummary.Name, Model.RecipeSummary.StyleName)" class="button button_black margintop20 widebutton">Go To Recipe</a>
+                    <a href="@Url.RecipeDetailUrl(Model.RecipeSummary.RecipeId, Model.RecipeSummary.Name, Model.RecipeSummary.StyleName)" class="btn btn-default btn-lg">Go To Recipe</a>
                 </div>
 
             </section>

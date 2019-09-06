@@ -25,8 +25,9 @@ function general_onReady() {
     $('<img src="/img/colorbox/loading.gif"/>');
     $('<img src="/img/colorbox/loading_background.png"/>');
     $('<img src="/img/colorbox/overlay.png"/>');
-
+    
     // Tipsy Tool Tips
+    // TODO: won't add to added dom elements
     $('[original-title]').each(function (index, ele) {
         $(ele).tipsy({ gravity: 's' });
     });

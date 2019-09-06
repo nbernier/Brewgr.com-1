@@ -518,7 +518,14 @@ namespace Brewgr.Web.Controllers
 			// Add Messaging
 			this.AppendMessage(new InfoMessage { Text = "You are cloning \"" + recipe.RecipeName + "\".  Once you have made your changes, click \"Save Recipe\"" });
 
-			return View("NewRecipe", cloned);
+            //if (Request["version"] != null && Request["Version"].ToString() == "2")
+            //{
+                return View("NewRecipe_V2", cloned);
+            //}
+            //else
+            //{
+            //    return View("NewRecipe", cloned);
+            //}
 		}
 
 		/// <summary>
@@ -550,7 +557,15 @@ namespace Brewgr.Web.Controllers
 			recipe.Efficiency = .75;
 			recipe.IbuFormula = "t";
 
-			return View("NewRecipe", recipe);
+            //if (Request["version"] != null && Request["Version"].ToString() == "2")
+            //{
+                return View("NewRecipe_V2", recipe);
+            //}
+            //else
+            //{
+            //    return View("NewRecipe", recipe);
+            //}
+			
 		}
 
 		#endregion
@@ -564,14 +579,21 @@ namespace Brewgr.Web.Controllers
 			return View("_BuilderTemplates");			
 		}
 
-		#endregion
+        [ActionName("buildertemplates-v2-2")]
+        [ForceHttps]
+        public ViewResult BuilderTemplates_V2()
+        {
+            return View("_BuilderTemplates_V2");
+        }
 
-		#region EDIT RECIPE
+        #endregion
 
-		/// <summary>
-		/// Executes the View for RecipeEdit
-		/// </summary>
-		[Authorize]
+        #region EDIT RECIPE
+
+        /// <summary>
+        /// Executes the View for RecipeEdit
+        /// </summary>
+        [Authorize]
 		[ForceHttps]
 		public ActionResult RecipeEdit(int recipeId)
 		{
@@ -607,7 +629,15 @@ namespace Brewgr.Web.Controllers
 			// Get the most recent brew session -- this should be added to the recipe in the service, really but hey
 			recipeModel.MostRecentBrewSession = this.RecipeService.GetMostRecentBrewSession(recipeId);
 
-			return View(recipeModel);
+            //if (Request["version"] != null && Request["Version"].ToString() == "2")
+            //{
+                return View("RecipeEdit_V2", recipeModel);
+            //}
+            //else
+            //{
+            //    return View(recipeModel);
+            //}
+            
 		}
 
 		/// <summary>
@@ -748,12 +778,19 @@ namespace Brewgr.Web.Controllers
 			// TODO: Check if the name passed in the URL is different than what
 			// TODO: is in the DB.  If it is....do a 301 Redirect.  This is for SEO.
             ViewData["DisableEditing"] = true;
-
+            ViewData["IbuFormula"] = recipeDetailViewModel.RecipeViewModel.IbuFormula;
 
 			// Get Send To Shop Settings (if any)
 			ViewBag.SendToShopSettings = this.SendToShopService.GetRecipeCreationSendToShopSettings(false);
 
-            return View(recipeDetailViewModel);
+            //if (Request["version"] != null && Request["Version"].ToString() == "2")
+            //{
+                return View("RecipeDetail_V2", recipeDetailViewModel);
+            //}
+            //else
+            //{
+            //    return View(recipeDetailViewModel);
+            //}
 		}
 
  

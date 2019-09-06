@@ -44,6 +44,13 @@ namespace Brewgr.Web
                     "~/css/lib/colorbox.css"));
         }
 
+        public static void RegisterBuilderBundlesNew(BundleCollection bundles)
+        {
+            bundles.Add(new StyleBundle("~/bundles/css/builder_V2")
+                .Include(
+                    "~/css/builder_V2.css"));
+        }
+
         public static void RegisterBuilderBundles(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle("~/bundles/css/builder")

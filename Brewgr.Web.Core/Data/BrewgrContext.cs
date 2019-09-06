@@ -61,7 +61,8 @@ namespace Brewgr.Web.Core.Data
 		/// </summary>
 		public BrewgrContext(string connectionString) : base(connectionString)
 		{
-			this.Configuration.LazyLoadingEnabled = true;
+            //this.Configuration.ProxyCreationEnabled = false;
+            this.Configuration.LazyLoadingEnabled = true;
 		}
 
 		/// <summary>

@@ -18,7 +18,14 @@
                 <h4>
                     <a href="@Url.RecipeDetailUrl(Model.RecipeId, Model.RecipeName, Model.BJCPStyleName)">@recipeName</a>
                 </h4>
-                <div class="type">@Model.GetRecipeTypeName() Recipe</div>
+                @if (!String.IsNullOrEmpty(Model.BJCPStyleName) && Model.BJCPStyleName != "Unknown Style")
+                {
+                    <div class="type">@Model.BJCPStyleName</div>
+                }
+                else
+                {
+                    <div class="type">@Model.GetRecipeTypeName() Recipe</div>
+                }
                 <div class="author">
                     by <a href="@Url.UserProfileUrl(Model.CreatedByUserName)">@Model.CreatedByUserName</a> <small><abbr class="timeago" title="@Model.DateCreated.ToString("g")">@Model.DateCreated</abbr></small>
                 </div>

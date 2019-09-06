@@ -57,7 +57,7 @@
                 <span class="glyphicon glyphicon-menu-down"></span>
             </button>
             <ul class="dropdown-menu dropdown-menu-right">
-                <li><a href="@Url.RecipeDetailUrl(Model.RecipeId, Model.RecipeName, Model.RecipeBjcpStyleName)">Details</a></li>
+                <li><a href="@Url.BrewSessionDetailUrl(Model.BrewSessionId, Model.RecipeName)">Details</a></li>
                 <li><a href="@Url.RecipeDetailUrl(Model.RecipeId, Model.RecipeName, !string.IsNullOrWhiteSpace(Model.RecipeBjcpStyleSubCategoryId) ? Model.RecipeBjcpStyleName : null)">Go To Recipe</a></li>
                 @if (ViewBag.ActiveUser != null && Model.WasBrewedBy(ViewBag.ActiveUser.UserId))
                 {

@@ -324,6 +324,7 @@
   <ItemGroup>
     <Content Include="crossdomain.xml" />
     <Content Include="css\builder.css" />
+    <Content Include="css\builder_V2.css" />
     <Content Include="css\colorbox.css" />
     <Content Include="css\content.css" />
     <Content Include="css\lib\bootstrap.min.css" />
@@ -2532,6 +2533,26 @@
     <Content Include="Views\Shared\_RecipeListTable.cshtml" />
     <Content Include="Views\Calculators\CalculatorsMashTunCapacity.cshtml" />
     <Content Include="Views\Shared\_RecipeFactsNew.cshtml" />
+    <Content Include="Views\Recipe\NewRecipe_V2.cshtml" />
+    <Content Include="Views\Recipe\_Builder_V2.cshtml" />
+    <Content Include="Views\Recipe\_BuilderFermentableRow_V2.cshtml" />
+    <Content Include="Views\Recipe\_BuilderFermentableTable_V2.cshtml" />
+    <Content Include="Views\Recipe\_BuilderTemplates_V2.cshtml" />
+    <Content Include="Views\Recipe\_BuilderHopTable_V2.cshtml" />
+    <Content Include="Views\Recipe\_BuilderHopRow_V2.cshtml" />
+    <Content Include="Views\Recipe\_BuilderInfo_V2.cshtml" />
+    <Content Include="Views\Recipe\_BuilderYeastTable_V2.cshtml" />
+    <Content Include="Views\Recipe\_BuilderYeastRow_V2.cshtml" />
+    <Content Include="Views\Recipe\_BuilderAdjunctTable_V2.cshtml" />
+    <Content Include="Views\Recipe\_BuilderAdjunctRow_V2.cshtml" />
+    <Content Include="Views\Recipe\_BuilderMashStepTable_V2.cshtml" />
+    <Content Include="Views\Recipe\_BuilderMashStepRow_V2.cshtml" />
+    <Content Include="Views\Recipe\_BuilderStepTable_V2.cshtml" />
+    <Content Include="Views\Recipe\_BuilderStepRow_V2.cshtml" />
+    <Content Include="Views\Recipe\_RecipeStyleGuide_V2.cshtml" />
+    <Content Include="Views\Recipe\RecipeEdit_V2.cshtml" />
+    <Content Include="Views\Recipe\RecipeDetail_V2.cshtml" />
+    <Content Include="Views\Recipe\_RecipeDetailInfo_V2.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
