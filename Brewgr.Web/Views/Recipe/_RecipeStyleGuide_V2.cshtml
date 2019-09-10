@@ -12,7 +12,7 @@
     .bjcp-details small {  }
 </style>
 
-<div id="select-style" class="well well-sm">
+<div id="select-style" class="well well-sm recipedata">
     <div class="form-field">
 
         @if (ViewData["DisableEditing"] != null)
@@ -21,8 +21,7 @@
         }
         else
         {
-            @*@Html.LabelFor(m => m.Name, "Homebrew Style Guide")*@
-        <h4>Homebrew Style Guide</h4>
+            <h4>Homebrew Style Guide</h4>
             <p>
                 The homebrew style guide helps you match your homebrew recipe with one
                 of the Beer Judge Certification Program (BJCP) official styles.
@@ -54,8 +53,6 @@
 <script id="bjcpStyleTemplate" type="text/x-jquery-tmpl">
 
     <div class="row">
-        @*<section class="col-xs-2 bjcp-label small" id="bjcp-label">${styleElement}</section>
-        <section class="col-xs-2 bjcp-leftnumber small">${styleElementStartValue}</section>*@
         <section class="col-xs-3 bjcp-leftnumber small"><b>${styleElement}</b> ${styleElementStartValue}</section>
         <section class="col-xs-6 bjcp-scale">
             <div class="progress" original-title="${styleElement}: {{if styleStart == 0}} Varies {{else}} ${styleStart}-${styleEnd} {{/if}} / Your ${styleElement}: ${currentBrewValue}">
@@ -68,16 +65,6 @@
         <section class="visible-xs col-xs-12 bjcp-details">
             <small>${styleElement}: {{if styleStart == 0}} Varies {{else}} ${styleStart}-${styleEnd} {{/if}} / Your ${styleElement}: ${currentBrewValue}</small>
         </section>
-        @*<section class="col-xs-2 bjcp-check"><img id="styleCheck" src="/img/icons/tick.png" style="display:${styleMatch}" /></section>*@
     </div>
 
-        @*<div class="bjcp-label" id="bjcp-label">${styleElement}</div>
-            <div class="bjcp-leftnumber">${styleElementStartValue}</div>
-            <div class="bjcp-slider" original-title="${styleElement}: {{if styleStart == 0}} Varies {{else}} ${styleStart}-${styleEnd} {{/if}} / Your ${styleElement}: ${currentBrewValue}">
-                <div class="bjcp-slider-range" style="left: ${styleElementStartPercent}%; width: ${styleElementEndPercent}%; "></div>
-                <img class="bjcp-marker" src="/img/stylemarker.png" style="left: ${styleMarkerPercent}%;" />
-            </div>
-            <div class="bjcp-rightnumber">${styleElementEndValue}</div>
-            <div class="bjcp-check"><img id="styleCheck" src="/img/icons/tick.png" style="display:${styleMatch}" /></div>
-            <div class="clearall"></div>*@
 </script>

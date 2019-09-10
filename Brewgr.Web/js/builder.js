@@ -187,7 +187,7 @@ var Builder =
             var name = $(this).attr('data-name').replace('r_', '');
             recipe[name] = $(this).val();
         });
-
+        
         // Get Ingredients and Steps
         $('.dataTable').each(function () {
             var type = $(this).attr('data-name').split('_')[0];
@@ -204,7 +204,7 @@ var Builder =
                 list.push(data);
             });
         });
-
+        
         recipe.calculate();
         return recipe;
     },
@@ -572,38 +572,21 @@ var Builder =
     wireSorting : function() {
         $('.dataTable').each(function () {
             var dataName = $(this).attr('data-name');
-            if (typeof BUILDER_VERSION !== 'undefined' && BUILDER_VERSION == 2) {
-                $('[data-name=' + dataName + '].sort-wrap').sortable({
-                    connectWith: ".sort-wrap",
-                    containment: '[data-name=' + dataName + ']',
-                    tolerance: 'pointer',
-                    placeholder: 'placeholder',
-                    start: function (event, ui) {
-                        ui.placeholder.html('<div class="panel panel-default"><div class="panel-body"></div>');
-                    },
-                    update: function (event, ui) {
-                        // Re-Rank Table
-                        var type = $(ui.item).parents('.dataTable').attr('data-name').split('_')[0];
-                        Builder.reRankTable(type);
-                        Builder.refreshTabIndices();
-                    }
-                });
-            }
-            else {
-                $('[data-name=' + dataName + '] tbody').sortable({
-                    containment: '[data-name=' + dataName + ']',
-                    placeholder: 'placeholder',
-                    start: function (event, ui) {
-                        ui.placeholder.html('<td colspan="10" class="placeholder">&nbsp;</td>');
-                    },
-                    update: function (event, ui) {
-                        // Re-Rank Table
-                        var type = $(ui.item).parents('table').attr('data-name').split('_')[0];
-                        Builder.reRankTable(type);
-                        Builder.refreshTabIndices();
-                    }
-                });
-            }
+            $('[data-name=' + dataName + '].sort-wrap').sortable({
+                connectWith: ".sort-wrap",
+                containment: '[data-name=' + dataName + ']',
+                tolerance: 'pointer',
+                placeholder: 'placeholder',
+                start: function (event, ui) {
+                    ui.placeholder.html('<div class="panel panel-default"><div class="panel-body"></div>');
+                },
+                update: function (event, ui) {
+                    // Re-Rank Table
+                    var type = $(ui.item).parents('.dataTable').attr('data-name').split('_')[0];
+                    Builder.reRankTable(type);
+                    Builder.refreshTabIndices();
+                }
+            });
         });
     },
 
@@ -628,25 +611,17 @@ var Builder =
 
     /// Re-Ranks a table
     reRankTable: function (type) {
-        if (typeof BUILDER_VERSION !== 'undefined' && BUILDER_VERSION == 2) {
-            $('[data-name=' + type + '_table] .row').each(function (index, ele) {
+        $('[data-name=' + type + '_table] .row').each(function (index, ele) {
                 $(ele).find('[data-name=' + type + '_Rank]').val(index + 1).change();
                 $(ele).find('[data-name=' + type + '_RankLabel]').text((index + 1) + '.');
-            });
-        }
-        else {
-            $('[data-name=' + type + '_table] tbody tr').each(function (index, ele) {
-                $(ele).find('[data-name=' + type + '_Rank]').val(index + 1).change();
-                $(ele).find('[data-name=' + type + '_RankLabel]').text((index + 1) + '.');
-            });
-        }
+        });
     },
 
     // Pulls down ing row templates and adds them to the DOM
     // We do it this way to benefit from browser caching
     prepTemplates: function () {
         $.ajax({
-            url: (typeof BUILDER_VERSION !== 'undefined' && BUILDER_VERSION == 2) ? '/buildertemplates-v2-2' : '/buildertemplates-v2',
+            url: '/buildertemplates-v2-2',
             async: false,
             cache: true,
             success: function (t) {
@@ -782,14 +757,8 @@ var Builder =
         var table = $('[data-name=' + type + '_table]');
         table.find('.introrow').remove();
            
-        if (typeof BUILDER_VERSION !== 'undefined' && BUILDER_VERSION == 2) {
-            table.next('.panel-footer').show();  
-            table.append(row);
-        }
-        else {
-            table.find('thead, tfoot').show();  
-            table.find('tbody').append(row);
-        }
+        table.next('.panel-footer').show();  
+        table.append(row);
 
         // Refresh Tab Indices
         Builder.refreshTabIndices();

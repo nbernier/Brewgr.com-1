@@ -175,7 +175,6 @@ var StyleChart = {
         if (low == 0 && high == 0) {
             return true;
         }
-        debugger;
         return ((current >= low) && (current <= high));
     },
 
