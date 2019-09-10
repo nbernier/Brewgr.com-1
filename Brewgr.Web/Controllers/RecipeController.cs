@@ -214,7 +214,7 @@ namespace Brewgr.Web.Controllers
 				{
 					this.AppendMessage(new ErrorMessage { Text = "Did you leave something blank?  Please check your entries and try again."});
 					ViewBag.RecipeCreationOptions = this.RecipeService.GetRecipeCreationOptions();
-					return this.View("NewRecipe", recipeViewModel);
+					return this.View("NewRecipe_V2", recipeViewModel);
 				}
 
 				// Signals Invalid
@@ -472,8 +472,8 @@ namespace Brewgr.Web.Controllers
 					{
 						ViewBag.RecipeCreationOptions = this.RecipeService.GetRecipeCreationOptions();
 						this.AppendMessage(new ErrorMessage { Text = GenericMessages.ErrorMessage });
-						return View("NewRecipe", recipeViewModel);
-					}
+                        return View("NewRecipe_V2", recipeViewModel);
+                    }
 					else
 					{
 						// Signals Failure
@@ -518,14 +518,7 @@ namespace Brewgr.Web.Controllers
 			// Add Messaging
 			this.AppendMessage(new InfoMessage { Text = "You are cloning \"" + recipe.RecipeName + "\".  Once you have made your changes, click \"Save Recipe\"" });
 
-            //if (Request["version"] != null && Request["Version"].ToString() == "2")
-            //{
-                return View("NewRecipe_V2", cloned);
-            //}
-            //else
-            //{
-            //    return View("NewRecipe", cloned);
-            //}
+            return View("NewRecipe_V2", cloned);
 		}
 
 		/// <summary>
@@ -557,15 +550,7 @@ namespace Brewgr.Web.Controllers
 			recipe.Efficiency = .75;
 			recipe.IbuFormula = "t";
 
-            //if (Request["version"] != null && Request["Version"].ToString() == "2")
-            //{
-                return View("NewRecipe_V2", recipe);
-            //}
-            //else
-            //{
-            //    return View("NewRecipe", recipe);
-            //}
-			
+            return View("NewRecipe_V2", recipe);
 		}
 
 		#endregion
@@ -1038,7 +1023,7 @@ namespace Brewgr.Web.Controllers
 
 			ViewBag.RecipeCreationOptions = this.RecipeService.GetRecipeCreationOptions();
 
-			return View("NewRecipe", Mapper.Map(recipe, new RecipeViewModel()));
+			return View("NewRecipe_V2", Mapper.Map(recipe, new RecipeViewModel()));
 		}
 
 		#endregion
