@@ -189,7 +189,27 @@ namespace Brewgr.Web.Controllers
 			return View(brewSessionViewModel);
 		}
 
-		[HttpPost]
+        /// <summary>
+        /// Executes the View for BrewSessionEdit
+        /// </summary>
+        [ForceHttps]
+        [Authorize]
+        public ActionResult BrewSessionLabel(int brewSessionId)
+        {
+            var brewSession = this.RecipeService.GetBrewSessionById(brewSessionId);
+
+            if (!this.VerifyBrewSessionAccess(brewSession))
+            {
+                return this.Issue404();
+            }
+
+            var brewSessionViewModel = Mapper.Map(brewSession, new BrewSessionViewModel());
+            brewSessionViewModel.RecipeSummary = Mapper.Map(this.RecipeService.GetRecipeSummaryById(brewSessionViewModel.RecipeId), new RecipeSummaryViewModel());
+
+            return View(brewSessionViewModel);
+        }
+
+        [HttpPost]
 		[Authorize]
 		[ForceHttps]
 		[Route("SaveSession")]

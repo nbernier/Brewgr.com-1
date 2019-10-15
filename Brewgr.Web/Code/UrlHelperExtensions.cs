@@ -47,10 +47,17 @@ namespace Brewgr.Web
 			return urlHelper.Action("RecipeEdit", "Recipe", new { recipeId }, urlHelper.Https());
 		}
 
-		/// <summary>
-		/// Creates a Brew Clone Url
-		/// </summary>
-		public static string RecipeCloneUrl(this UrlHelper urlHelper, int recipeId)
+        /// <summary>
+        /// Creates a Recipe Label Url
+        /// </summary>
+        public static string BrewSessionLabelUrl(this UrlHelper urlHelper, int brewSessionId)
+        {
+            return urlHelper.Action("BrewSessionLabel", "BrewSession", new { brewSessionId }, urlHelper.Https());
+        }
+        /// <summary>
+        /// Creates a Brew Clone Url
+        /// </summary>
+        public static string RecipeCloneUrl(this UrlHelper urlHelper, int recipeId)
 		{
 			return urlHelper.Action("RecipeClone", "Recipe", new { recipeId }, urlHelper.Https());
 		}
