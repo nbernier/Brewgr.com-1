@@ -4,12 +4,13 @@ using System.Linq;
 
 namespace Brewgr.Web.Core.Model
 {
+    [System.ComponentModel.DataAnnotations.Schema.Table("BjcpStyleSummary_2015")]
     public class BjcpStyleSummary
 	{
 		/// <summary>
 		/// Gets or sets the CategoryId
 		/// </summary>
-		public int CategoryId { get; set; }
+		public string CategoryId { get; set; }
 
 		/// <summary>
 		/// Gets or sets the CategoryName

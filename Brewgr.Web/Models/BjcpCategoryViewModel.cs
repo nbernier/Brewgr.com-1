@@ -9,7 +9,7 @@ namespace Brewgr.Web.Models
 		/// <summary>
 		/// Gets or sets the CategoryId
 		/// </summary>
-		public int CategoryId { get; set; }
+		public string CategoryId { get; set; }
 
 		/// <summary>
 		/// Gets or sets the CategoryName
